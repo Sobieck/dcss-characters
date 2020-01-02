@@ -1,0 +1,794 @@
+ Dungeon Crawl Stone Soup version 0.24.0-123-gd5b16e6ec5 (webtiles) character file.
+
+Sobieck the Slayer (Centaur Hunter)                Turns: 48764, Time: 03:41:41
+
+Health: 179/189    AC: 42    Str: 34    XL:     19   Next: 60%
+Magic:  26/26      EV:  5    Int: 10    God:    Okawaru [******]
+Gold:   3101       SH:  0    Dex:  9    Spells: 18/18 levels left
+
+rFire    . . .     SeeInvis +   S - +8 shortbow of the Reaper {speed, +Fly Str+5 Stlth+}
+rCold    . . .     Gourm    .   (shield currently unavailable)
+rNeg     . . .     Faith    .   l - +8 crystal plate armour
+rPois    +         Spirit   +   q - +2 helmet {SInv}
+rElec    .         Reflect  .   G - scarf {repulsion}
+rCorr    .         Harm     .   T - +0 pair of gloves
+MR       +....                  H - +4 centaur barding of Siojopy {+Fly Str+7 Dex-2}
+Stlth    ..........             I - amulet of guardian spirit
+HPRegen  0.41/turn              E - ring of poison resistance
+MPRegen  0.20/turn              P - +4 ring of slaying
+
+@: mildly poisoned (179 -> 178), repel missiles, very quick
+A: large, hooves 3, deformed body, speed 2, tough skin 3
+}: 1/15 runes: decaying
+a: Heroism, Finesse, Renounce Religion, Evoke Flight
+
+
+You are on level 3 of the Snake Pit.
+You worship Okawaru.
+Okawaru is exalted by your worship.
+You are not hungry.
+
+You have visited 7 branches of the dungeon, and seen 35 of its levels.
+
+You have collected 4036 gold pieces.
+You have spent 935 gold pieces at shops.
+
+Inventory:
+
+Hand Weapons
+ a - a +8 longbow of velocity
+ b - a +3 trident of venom
+ p - the +7 longbow "Bonte" {freeze, *Slow +Blink +Fly Str-4}
+   (You found it on level 6 of the Lair of Beasts)   
+   
+   It causes projectiles fired from it to freeze those they strike, causing
+   extra injury to most foes and up to half again as much damage against
+   particularly susceptible opponents. They can also slow down cold-blooded
+   creatures.
+   
+   It affects your strength (-4).
+   It lets you fly.
+   It lets you blink.
+   It may slow you when you take damage.
+ u - a +3 longbow of flaming
+ S - the +8 shortbow of the Reaper (weapon) {speed, +Fly Str+5 Stlth+}
+   (Okawaru gifted it to you on level 3 of the Snake Pit)   
+   
+   Attacks with this weapon are significantly faster.
+   
+   It affects your strength (+5).
+   It lets you fly.
+   It makes you more stealthy.
+Missiles
+ d - 894 arrows (quivered)
+ K - 3 javelins
+Armour
+ e - a scarf of resistance
+ l - a +8 crystal plate armour (worn)
+ q - a +2 helmet of see invisible (worn)
+ s - a +2 cloak of magic resistance
+ G - a scarf of repulsion (worn)
+ H - the +4 centaur barding of Siojopy (worn) {+Fly Str+7 Dex-2}
+   (Okawaru gifted it to you on level 2 of the Snake Pit)   
+   
+   It affects your strength (+7).
+   It affects your dexterity (-2).
+   It lets you fly.
+ T - a +0 pair of gloves (worn)
+Jewellery
+ j - an uncursed ring of positive energy
+ r - an uncursed ring of protection from cold
+ v - an uncursed ring of ice
+ w - an uncursed amulet of regeneration
+ C - an uncursed ring of resist corrosion
+ E - a ring of poison resistance (left hand)
+ I - an amulet of guardian spirit (around neck)
+ P - a +4 ring of slaying (right hand)
+ U - an uncursed ring of protection from magic
+Wands
+ g - a wand of scattershot (6)
+ k - a wand of flame (44)
+ y - a wand of digging (11)
+ M - a wand of acid (31)
+ W - a wand of iceblast (25)
+Scrolls
+ h - 3 scrolls of fog
+ i - 4 scrolls of fear
+ o - 15 scrolls of identify
+ t - 8 scrolls of teleportation
+ J - 10 scrolls of remove curse
+ L - 3 scrolls of summoning
+ O - 5 scrolls of magic mapping
+ V - 2 scrolls of blinking
+ Z - 2 scrolls of silence
+Potions
+ c - 10 potions of curing
+ m - a potion of haste
+ n - 4 potions of agility
+ x - 3 potions of flight
+ z - 3 potions of magic
+ A - 2 potions of ambrosia
+ B - 2 potions of might
+ D - 4 potions of heal wounds
+ N - a potion of brilliance
+ Q - 5 potions of lignification
+ R - a potion of cancellation
+ Y - 2 potions of berserk rage
+Comestibles
+ f - 37 rations
+ F - 2 chunks of flesh
+
+
+   Skills:
+ * Level 21.1 Fighting
+ - Level 5.0 Polearms
+ - Level 20.0 Bows
+ - Level 14.0 Armour
+ - Level 7.2 Dodging
+ - Level 0.4 Stealth
+ - Level 10.0 Invocations
+ - Level 6.1 Evocations
+
+
+You have 18 spell levels left.
+You don't know any spells.
+Your spell library contains the following spells:
+
+ Spells                   Type           Power        Failure   Level  Hunger
+ Animate Skeleton         Necr           N/A          99%         1    ##.....
+ Apportation              Tloc           #.....       99%         1    ##.....
+ Beastly Appendage        Tmut           #.....       99%         1    ##.....
+ Confusing Touch          Hex            #.....       99%         1    ##.....
+ Corona                   Hex            #......      99%         1    ##.....
+ Freeze                   Ice            #...         99%         1    ##.....
+ Magic Dart               Conj           #...         99%         1    ##.....
+ Sandblast                Erth           #.....       99%         1    ##.....
+ Sting                    Conj/Pois      #...         99%         1    ##.....
+ Summon Small Mammal      Summ           #...         99%         1    ##.....
+ Blink                    Tloc           N/A          100%        2    ###....
+ Call Imp                 Summ           #.......     100%        2    ###....
+ Ensorcelled Hibernation  Hex/Ice        #.....       100%        2    ###....
+ Passwall                 Tmut/Erth      #.......     100%        2    ###....
+ Poisonous Vapours        Pois/Air       #.....       100%        2    ###....
+ Searing Ray              Conj           #.....       100%        2    ###....
+ Slow                     Hex            #.......     100%        2    ###....
+ Sticks to Snakes         Tmut           #.......     100%        2    ###....
+ Throw Frost              Conj/Ice       #.....       100%        2    ###....
+ Confuse                  Hex            #.......     100%        3    ####...
+ Conjure Flame            Conj/Fire      #.......     100%        3    ####...
+ Dazzling Spray           Conj/Hex       #.....       100%        3    ####...
+ Mephitic Cloud           Conj/Pois/Air  #.......     100%        3    ####...
+ Ozocubu's Armour         Chrm/Ice       #.......     100%        3    ####...
+ Spider Form              Tmut/Pois      #.........   100%        3    ####...
+ Stone Arrow              Conj/Erth      #.....       100%        3    ####...
+ Tukima's Dance           Hex            #.......     100%        3    ####...
+ Cause Fear               Hex            #.........   100%        4    #####..
+ Force Lance              Conj/Tloc      #.......     100%        4    #####..
+ Fulminant Prism          Conj/Hex       #.........   100%        4    #####..
+ Ice Form                 Ice/Tmut       #.......     100%        4    #####..
+ Iskenderun's Mystic Bla  Conj           #.......     100%        4    #####..
+ Olgreb's Toxic Radiance  Pois           #.......     100%        4    #####..
+ Petrify                  Tmut/Erth      #.......     100%        4    #####..
+ Summon Ice Beast         Ice/Summ       #.......     100%        4    #####..
+ Throw Icicle             Conj/Ice       #.......     100%        4    #####..
+ Blade Hands              Tmut           #.........   100%        5    ######.
+ Lee's Rapid Deconstruct  Erth           #.........   100%        5    ######.
+ Silence                  Hex/Air        #.........   100%        5    ######.
+ Venom Bolt               Conj/Pois      #.........   100%        5    ######.
+ Yara's Violent Unravell  Hex/Tmut       #.........   100%        5    ######.
+ Deflect Missiles         Chrm/Air       #.........   100%        6    #######
+ Freezing Cloud           Conj/Ice/Air   #.........   100%        6    #######
+ Ring of Flames           Chrm/Fire      #.........   100%        7    #######
+ Discord                  Hex            #.........   100%        8    #######
+
+
+Dungeon Overview and Level Annotations
+
+Branches:
+Dungeon (15/15)            Temple (1/1) D:7            Lair (6/6) D:8
+  Swamp (4/4) Lair:2        Snake (3/4) Lair:4        Slime (0/5) Lair:5
+    Orc (2/2) D:11            Elf (0/3) Orc:2        Vaults (4/5) D:14
+  Crypt (0/3) Vaults:3     Depths (0/5) D:15        
+
+Altars:
+Ashenzari
+Cheibriados
+Dithmenos
+Elyvilon
+Fedhas
+Gozag
+Hepliaklqana
+Kikubaaqudgha
+Makhleb
+Nemelex Xobeh
+Okawaru
+Qazlal
+Ru
+Sif Muna
+Trog
+Uskayaw
+Vehumet
+Wu Jian
+Xom
+Yredelemnul
+Zin
+The Shining One
+Beogh
+
+Shops:
+D:9 !   D:15 (%   Orc:1 **   Orc:2 ?!**?   Snake:2 *}(?   Vaults:1 [
+
+Portals:
+Trove: Vaults:4 (lose all piety)
+
+Annotations:
+D:4 exclusion: downstairs
+D:7 2 transporters, exclusion: downstairs, TheNamelessOne's ghost, novice OpFE
+D:11 exclusion: 2 downstairs
+D:13 1 runed translucent door, Nebesus's ghost, journeyman MiFi
+Lair:3 exclusion: downstairs
+Lair:5 exclusion: downstairs
+Swamp:1 2 runed translucent doors, Tsab79's ghost, journeyman MiFi
+Vaults:3 3 runed translucent doors, exclusion: downstairs, Xafer's ghost, adept
+DsGl
+Vaults:4 exclusion: 2 downstairs
+
+
+Innate Abilities, Weirdness & Mutations
+
+You have hooves in place of feet.
+Armour fits poorly on your strangely shaped body.
+You cover ground very quickly.
+You have extremely tough skin. (AC +3)
+
+
+Message History
+
+The arrow hits the naga warrior but does no damage.
+The naga warrior is severely wounded.
+You feel sick.
+Firing (i - inventory. (/) - cycle) d - 893 arrows (quivered)
+Press: ? - help, Shift-Dir - straight line, f/p - naga warrior
+Aim: a naga warrior, wielding a +0 war axe (severely wounded, catching its
+breath)
+You shoot an arrow. The arrow hits the naga warrior!!!
+You kill the naga warrior!
+Okawaru accepts your kill.
+d - 894 arrows (gained 2)
+Things that are here:
+a +0 war axe; a fine shortbow {god gift}; a naga corpse
+You feel sick.
+S - a fine shortbow {god gift}
+You feel stronger.
+Your hands tingle!
+S - the +8 shortbow of the Reaper (weapon) {speed, +Fly Str+5 Stlth+}
+Adjust (i)tems, (s)pells, or (a)bilities? 
+Okay, then.
+Unknown command.
+
+#.....#  #............##
+ #..N#   ..........[...#
+  #.(#   ...............
+  #.(#   #..............
+  #((#   ####.......)...
+  #(.##     ####..#.....
+  ##..#####    ##.##....
+   ##(((..######## #####
+    ###@....#....##
+      ###.........#    .
+        ##........#    #
+         #........#    #
+         ##....#..# ####
+          #####...# #..#
+              #..####...
+              #.........
+              ##........
+
+
+There are no monsters in sight!
+
+Vanquished Creatures
+  the Lernaean hydra (Swamp:4)
+  A golden dragon (Vaults:3)
+  Nikola (Swamp:1)
+  Jorgrun (Snake:2)
+  A sphinx (Vaults:3)
+  Gastronok (D:12)
+  A storm dragon (Vaults:4)
+  A nagaraja (Snake:1)
+  5 vault wardens
+  A frost giant (Vaults:3)
+  6 ironheart preservers
+  A war gargoyle (Vaults:3)
+  A very ugly thing (Vaults:3)
+  2 stone giants
+  A deep elf demonologist (Vaults:1)
+  An ettin (Orc:1)
+  Snorg (D:13)
+  Josephine (D:12)
+  A fire dragon (Vaults:1)
+  6 yaktaur captains
+  2 ice dragons
+  Harold (D:7)
+  6 vault guards
+  3 shambling mangroves
+  21 hydras
+  4 great orbs of eyes
+  12 naga warriors
+  5 anacondas
+  A ghost crab (Swamp:3)
+  A merfolk avatar (Lair:6)
+  4 death knights
+  8 centaur warriors
+  33 two-headed ogres
+  4 death yaks
+  4 alligators
+  9 ogre magi
+  An orc high priest (Vaults:1)
+  A vampire mage (D:15)
+  6 shock serpents
+  2 deep elf knights (Vaults:3)
+  3 naga sharpshooters
+  3 salamander mystics
+  A shadow wraith (Vaults:3)
+  2 unseen horrors
+  5 deep trolls
+  7 skeletal warriors
+  5 sea snakes
+  A flayed ghost (Vaults:3)
+  A lindwurm (Lair:6)
+  A wizard (D:14)
+  10 swamp dragons
+  4 deep elf archers
+  12 ironbrand convokers
+  4 necromancers
+  6 naga ritualists
+  14 orc knights
+  5 deep elf magi
+  5 manticores
+  5 cyclopes
+  2 orc sorcerers (Vaults:4)
+  A stone giant zombie (D:15)
+  9 salamanders
+  16 mana vipers
+  15 ugly things
+  4 wolf spiders
+  A fire giant skeleton (D:15)
+  A stone giant skeleton (Vaults:1)
+  14 elephants
+  An elephant (shapeshifter) (Vaults:1)
+  4 guardian serpents
+  A frost giant skeleton (D:15)
+  30 black mambas
+  The ghost of Tenz the Chopper, a novice VSFi of Qazlal (D:6)
+  15 naga magi
+  A gargoyle (D:14)
+  16 vault sentinels
+  22 spiny frogs
+  2 storm dragon simulacra
+  2 centaur skeletons
+  3 kobold demonologists (D:15)
+  2 rime drakes
+  13 komodo dragons
+  25 yaktaurs
+  9 freezing wraiths
+  A guardian mummy (D:15)
+  A queen bee (shapeshifter) (Vaults:1)
+  11 polar bears
+  A tengu simulacrum (Vaults:3)
+  9 tyrant leeches
+  4 trolls
+  Prince Ribbit (D:6)
+  20 slime creatures
+  21 hornets
+  15 bog bodies
+  9 hippogriffs
+  16 blink frogs
+  7 dream sheep
+  A fire dragon zombie (D:15)
+  A vampire (D:12)
+  8 wraiths
+  5 shadows
+  10 spriggans
+  36 yaks
+  3 wyverns
+  A human (D:5)
+  3 basilisks
+  A steam dragon (D:10)
+  5 hungry ghosts
+  20 vampire mosquitoes
+  3 wargs
+  46 nagas
+  3 acid dragons
+  14 swamp worms
+  8 insubstantial wisps
+  A soldier ant (shapeshifter) (D:14)
+  17 water moccasins
+  A hornet zombie (D:14)
+  12 porcupines
+  4 black bears
+  A sky beast (D:13)
+  4 ice beasts
+  2 phantoms
+  49 orc warriors
+  12 swamp drakes
+  2 eyes of draining
+  An orc zombie (Vaults:1)
+  19 ogres
+  27 centaurs
+  4 boggarts (Lair:5)
+  23 wolves
+  A tengu (shapeshifter) (D:15)
+  2 human skeletons (Vaults:1)
+  18 crocodiles
+  4 big kobolds
+  15 bullfrogs
+  2 gnoll sergeants
+  A yaktaur skeleton (Vaults:1)
+  A water moccasin skeleton (D:12)
+  2 scorpions
+  22 killer bees
+  A jelly (D:11)
+  5 electric eels (Snake:1)
+  5 wights
+  A howler monkey (D:5)
+  6 crimson imps
+  4 centaur zombies
+  A quasit (D:10)
+  2 bullfrog zombies
+  4 bullfrog skeletons
+  21 orc wizards
+  7 hounds
+  2 human zombies
+  15 orc priests
+  Jessica (D:2)
+  5 iguanas
+  6 worker ants
+  A hound zombie (D:8)
+  A hound skeleton (D:7)
+  A worker ant zombie (D:10)
+  Robin (D:2)
+  10 gnolls
+  16 adders
+  4 shadow imps
+  A white imp (Vaults:3)
+  An adder zombie (D:6)
+  4 worms
+  2 dart slugs
+  6 leopard geckos
+  81 orcs
+  13 bats
+  2 giant cockroaches (D:1)
+  18 goblins
+  13 hobgoblins
+  3 jackals (D:7)
+  5 quokkas
+  4 frilled lizards
+  A jackal skeleton (D:8)
+  26 kobolds
+  A leopard gecko zombie (D:5)
+  A quokka skeleton (D:4)
+  6 rats
+  A bush (D:6)
+  A fungus (Lair:5)
+  2 plants (Lair:6)
+1310 creatures vanquished.
+
+Vanquished Creatures (others)
+  2 bushes (Lair:6)
+  27 fungi
+  21 plants
+  4 withered plants
+54 creatures vanquished.
+
+Grand Total: 1364 creatures vanquished
+
+Notes
+Turn   | Place    | Note
+-------+----------+-------------------------------------------
+     0 | D:1      | Sobieck the Centaur Hunter began the quest for the Orb.
+     0 | D:1      | Reached XP level 1. HP: 17/17 MP: 1/1
+   107 | D:1      | Reached XP level 2. HP: 24/24 MP: 2/2
+   113 | D:2      | Noticed Jessica
+   411 | D:2      | Killed Jessica
+   411 | D:2      | Reached XP level 3. HP: 29/29 MP: 3/3
+   487 | D:2      | Noticed Robin
+  1217 | D:2      | Killed Robin
+  1217 | D:2      | Reached XP level 4. HP: 9/36 MP: 4/4
+  1937 | D:3      | Found a basalt altar of Yredelemnul.
+  1937 | D:3      | Found a shimmering altar of Xom.
+  2035 | D:5      | Entered Level 5 of the Dungeon
+  2118 | D:4      | Reached XP level 5. HP: 34/41 MP: 5/5
+  2188 | D:4      | Found a shattered altar of Ashenzari.
+  2217 | D:5      | Noticed a water moccasin
+  2489 | D:4      | Reached XP level 6. HP: 32/48 MP: 6/6
+  2959 | D:4      | Reached skill level 10 in Bows
+  2979 | D:5      | Noticed an ice beast
+  3012 | D:4      | Killed an ice beast
+  3181 | D:5      | Killed a water moccasin
+  3181 | D:5      | Reached skill level 3 in Fighting
+  3181 | D:5      | Reached skill level 1 in Polearms
+  3181 | D:5      | Reached XP level 7. HP: 39/57 MP: 7/7
+  3621 | D:6      | Found a blossoming altar of Fedhas.
+  3659 | D:6      | Found a glowing silver altar of Zin.
+  3698 | D:6      | Found a runed translucent door.
+  3698 | D:6      | Noticed Tenz's ghost (novice VSFi)
+  3913 | D:6      | Reached skill level 4 in Fighting
+  4314 | D:6      | Reached XP level 8. HP: 49/67 MP: 8/8
+  4424 | D:6      | Noticed Prince Ribbit
+  4442 | D:6      | Killed Prince Ribbit
+  4756 | D:6      | Identified a scroll of acquirement
+  4816 | D:7      | Reached skill level 5 in Fighting
+  4941 | D:7      | Found a transporter.
+  4946 | D:7      | Noticed a moth of wrath
+  4946 | D:7      | Noticed a catoblepas
+  4996 | D:7      | Found a staircase to the Ecumenical Temple.
+  5046 | Temple   | Entered the Ecumenical Temple
+  5080 | Temple   | Became a worshipper of Warmaster Okawaru
+  6088 | D:2      | Found an iron altar of Okawaru.
+  6753 | D:5      | Found a runed translucent door.
+  6755 | D:5      | Found a basalt altar of Yredelemnul.
+  7071 | D:8      | Noticed a hippogriff
+  7113 | D:7      | Killed a hippogriff
+  7113 | D:7      | Reached XP level 9. HP: 56/74 MP: 9/9
+  7167 | D:7      | Reached skill level 5 in Polearms
+  7556 | D:7      | Reached * piety under Okawaru
+  7664 | D:7      | Found a transporter.
+  7714 | D:7      | Noticed Harold
+  7772 | D:7      | Killed Harold
+  7772 | D:7      | Reached ** piety under Okawaru
+  8003 | D:7      | Reached skill level 15 in Bows
+  8142 | D:7      | Found a bloodstained altar of Trog.
+  8205 | D:7      | Noticed TheNamelessOne's ghost (novice OpFE)
+  8366 | D:8      | Noticed a cyan ugly thing
+  8407 | D:7      | Killed a cyan ugly thing
+  8407 | D:7      | Reached XP level 10. HP: 81/81 MP: 11/13
+  8457 | D:7      | Reached *** piety under Okawaru
+  8900 | D:8      | Found an ancient bone altar of Kikubaaqudgha.
+  9377 | D:8      | Reached skill level 5 in Invocations
+  9603 | D:8      | Found a staircase to the Lair.
+ 10106 | D:9      | Reached **** piety under Okawaru
+ 10280 | D:9      | Found a sacrificial altar of Ru.
+ 10364 | D:9      | Found Jisopt's Distillery.
+ 10382 | D:9      | Bought a potion of mutation for 96 gold pieces
+ 10401 | D:9      | Received a gift from Okawaru
+ 10469 | D:9      | Noticed a two-headed ogre
+ 10509 | D:9      | Killed a two-headed ogre
+ 10655 | D:9      | Received a gift from Okawaru
+ 10762 | D:10     | Entered Level 10 of the Dungeon
+ 11248 | D:9      | Noticed a two-headed ogre
+ 11254 | D:9      | Killed a two-headed ogre
+ 11254 | D:9      | Received a gift from Okawaru
+ 11254 | D:9      | Reached skill level 6 in Fighting
+ 11254 | D:9      | Reached XP level 11. HP: 89/89 MP: 14/14
+ 11736 | D:10     | Found a basalt altar of Yredelemnul.
+ 11981 | D:10     | Received a gift from Okawaru
+ 12095 | D:11     | Noticed a two-headed ogre
+ 12123 | D:10     | Killed a two-headed ogre
+ 12123 | D:10     | Reached skill level 7 in Fighting
+ 12209 | D:10     | Reached ***** piety under Okawaru
+ 12502 | D:12     | Noticed a death knight
+ 12502 | D:12     | Noticed a skeletal warrior
+ 12558 | D:11     | Noticed a brown ugly thing
+ 12570 | D:11     | Killed a brown ugly thing
+ 12595 | D:11     | Found a staircase to the Orcish Mines.
+ 13077 | D:11     | Noticed a two-headed ogre
+ 13088 | D:11     | Killed a two-headed ogre
+ 13088 | D:11     | Received a gift from Okawaru
+ 13744 | Lair:1   | Entered Level 1 of the Lair of Beasts
+ 13744 | Lair:1   | Noticed a four-headed hydra
+ 13817 | D:8      | Killed a four-headed hydra
+ 13817 | D:8      | Reached skill level 8 in Fighting
+ 14042 | Lair:1   | Received a gift from Okawaru
+ 14372 | Lair:1   | Received a gift from Okawaru
+ 14781 | D:8      | Reached XP level 12. HP: 94/102 MP: 16/16
+ 14992 | Lair:1   | Noticed a seven-headed hydra
+ 15010 | Lair:1   | Killed a seven-headed hydra
+ 15788 | Lair:2   | Reached skill level 9 in Fighting
+ 15826 | Lair:2   | Noticed a five-headed hydra
+ 15842 | Lair:2   | Killed a five-headed hydra
+ 15983 | Lair:2   | Found a staircase to the Swamp.
+ 16879 | Lair:3   | Reached skill level 10 in Fighting
+ 17183 | Lair:3   | Noticed an eight-headed hydra
+ 17196 | Lair:3   | Killed an eight-headed hydra
+ 17196 | Lair:3   | Received a gift from Okawaru
+ 17197 | Lair:3   | Got a steaming shortbow {god gift}
+ 17220 | Lair:2   | Identified the +4 shortbow of Plunder {freeze, Str+4 Int-4
+                  | Dex+6} (Okawaru gifted it to you on level 3 of the Lair of
+                  | Beasts)
+ 17472 | Lair:3   | Reached XP level 13. HP: 114/114 MP: 20/20
+ 17609 | Lair:3   | Reached skill level 10 in Invocations
+ 17759 | Lair:3   | Reached skill level 1 in Armour
+ 17773 | Lair:3   | Reached skill level 11 in Fighting
+ 18305 | Lair:4   | Found a staircase to the Snake Pit.
+ 18423 | Lair:4   | Received a gift from Okawaru
+ 19059 | Lair:5   | Reached skill level 12 in Fighting
+ 19424 | Lair:5   | Found a staircase to the Slime Pits.
+ 19648 | Lair:6   | Entered Level 6 of the Lair of Beasts
+ 19649 | Lair:6   | Reached ****** piety under Okawaru
+ 20456 | Lair:6   | Reached skill level 13 in Fighting
+ 21322 | Lair:5   | Received a gift from Okawaru
+ 21413 | Lair:6   | Reached XP level 14. HP: 123/129 MP: 21/21
+ 21449 | Lair:6   | Received a gift from Okawaru
+ 21532 | Lair:6   | Reached skill level 5 in Armour
+ 21945 | Lair:6   | Reached skill level 14 in Fighting
+ 22093 | Lair:6   | Received a gift from Okawaru
+ 22247 | Lair:6   | Received a gift from Okawaru
+ 22435 | Lair:6   | Got an encrusted longbow
+ 22500 | Lair:6   | Identified the +7 longbow "Bonte" {freeze, *Slow +Blink
+                  | +Fly Str-4} (You found it on level 6 of the Lair of Beasts)
+ 22824 | Snake:1  | Entered Level 1 of the Snake Pit
+ 22824 | Snake:1  | Noticed a nagaraja
+ 23100 | D:5      | Got a steaming bone amulet
+ 23101 | D:5      | Identified the amulet "Hefekky" {Fragile +Rage rPois Str+2}
+                  | (You acquired it on level 5 of the Dungeon)
+ 23264 | D:6      | Killed Tenz's ghost
+ 23661 | D:10     | Got an ancient ring mail
+ 23662 | D:10     | Identified the cursed +1 ring mail of True Grit {rF+ MR+
+                  | Regen+ MP+9} (You found it on level 10 of the Dungeon)
+ 23941 | D:13     | Reached skill level 1 in Evocations
+ 24179 | D:12     | Noticed Gastronok
+ 24187 | D:12     | Killed Gastronok
+ 24228 | D:12     | Received a gift from Okawaru
+ 24286 | D:12     | Noticed Josephine
+ 24294 | D:12     | Killed Josephine
+ 24489 | D:12     | Reached skill level 15 in Fighting
+ 24844 | D:12     | Received a gift from Okawaru
+ 25043 | D:13     | Noticed Snorg
+ 25089 | D:13     | Killed Snorg
+ 25369 | D:13     | Found a runed translucent door.
+ 25376 | D:13     | Found a shimmering altar of Xom.
+ 25376 | D:13     | Noticed Nebesus's ghost (journeyman MiFi)
+ 25377 | D:13     | Identified the cursed +1 dire flail of the Lurker {chaos,
+                  | Int+6 SInv}
+ 25713 | D:15     | Entered Level 15 of the Dungeon
+ 25744 | D:14     | Reached XP level 15. HP: 139/141 MP: 22/22
+ 25768 | D:15     | Found Cyraerae's Weapon Shoppe.
+ 26527 | D:13     | Received a gift from Okawaru
+ 27214 | D:14     | Reached skill level 16 in Fighting
+ 27323 | D:14     | Found a gate to the Vaults.
+ 27580 | D:15     | Reached skill level 5 in Evocations
+ 27709 | D:15     | Found Pawirgh's Food Shoppe.
+ 27951 | D:15     | Found a staircase to the Depths.
+ 28352 | D:15     | Found a shattered altar of Ashenzari.
+ 28881 | Orc:1    | Entered Level 1 of the Orcish Mines
+ 28966 | Orc:1    | Found Pilisum's Assorted Antiques.
+ 29015 | Orc:1    | Found a roughly hewn altar of Beogh.
+ 29128 | Orc:2    | Entered Level 2 of the Orcish Mines
+ 29128 | Orc:2    | Found Dunagge's Magic Scroll Emporium.
+ 29149 | Orc:2    | Bought a scroll of enchant weapon for 97 gold pieces
+ 29418 | Orc:1    | Received a gift from Okawaru
+ 29532 | Orc:1    | Found Rycyutto's Assorted Antiques.
+ 30328 | Orc:2    | Found a staircase to the Elven Halls.
+ 30533 | Orc:2    | Found Wuakalea's General Store.
+ 30533 | Orc:2    | Found Wicvo's General Store.
+ 30535 | Orc:2    | Found Laith's Magic Scroll Boutique.
+ 30537 | Orc:2    | Found Niseliuts's Distillery.
+ 30549 | Orc:2    | Bought a scroll of enchant weapon for 82 gold pieces
+ 30575 | Orc:2    | Bought a scroll of enchant armour for 82 gold pieces
+ 30578 | Orc:2    | Bought a potion of heal wounds for 70 gold pieces
+ 30578 | Orc:2    | Bought a potion of curing for 42 gold pieces
+ 30578 | Orc:2    | Bought a scarf of repulsion for 168 gold pieces
+ 30591 | Orc:2    | Bought a potion of heal wounds for 65 gold pieces
+ 30591 | Orc:2    | Bought a potion of curing for 39 gold pieces
+ 30626 | Orc:2    | Bought a scroll of enchant armour for 97 gold pieces
+ 30626 | Orc:2    | Bought a scroll of enchant armour for 97 gold pieces
+ 31094 | Swamp:1  | Entered Level 1 of the Swamp
+ 31884 | Swamp:1  | Reached XP level 16. HP: 146/154 MP: 21/23
+ 32142 | Swamp:1  | Noticed Nikola
+ 32364 | Swamp:1  | Killed Nikola
+ 32364 | Swamp:1  | Reached skill level 5 in Dodging
+ 32422 | Swamp:1  | Found a large runed translucent door.
+ 32423 | Swamp:1  | Found a large runed translucent door.
+ 32426 | Swamp:1  | Noticed Tsab79's ghost (journeyman MiFi)
+ 32673 | Swamp:2  | Received a gift from Okawaru
+ 33632 | Swamp:3  | Received a gift from Okawaru
+ 34401 | Swamp:4  | Entered Level 4 of the Swamp
+ 34407 | Swamp:4  | Received a gift from Okawaru
+ 35510 | Swamp:4  | Received a gift from Okawaru
+ 36078 | Swamp:4  | Noticed the 27-headed Lernaean hydra
+ 36097 | Swamp:4  | Killed the 27-headed Lernaean hydra
+ 36097 | Swamp:4  | Reached skill level 10 in Armour
+ 36110 | Swamp:4  | Got a transparent ring mail
+ 36111 | Swamp:4  | Identified the +1 ring mail of Meruam {rElec Str+4} (You
+                  | found it on level 4 of the Swamp)
+ 36133 | Swamp:4  | Got a decaying rune of Zot
+ 36691 | Vaults:1 | Entered Level 1 of the Vaults
+ 36764 | Vaults:1 | Received a gift from Okawaru
+ 36975 | Vaults:1 | Reached XP level 17. HP: 143/160 MP: 24/24
+ 37160 | Vaults:1 | Received a gift from Okawaru
+ 37169 | Vaults:1 | Got a smelly plate armour {god gift}
+ 37170 | Vaults:1 | Identified the +0 plate armour "Oplal" {rF- Str+2 Int+7}
+                  | (Okawaru gifted it to you on level 1 of the Vaults)
+ 37289 | Vaults:1 | Found Joupy's Antique Armour Shop.
+ 37699 | Vaults:1 | Reached skill level 17 in Fighting
+ 38430 | Vaults:1 | Got a spiked leather armour
+ 38431 | Vaults:1 | Identified the cursed +0 leather armour of Muttered Phrases
+                  | {MR+ Int+2} (You found it on level 1 of the Vaults)
+ 38801 | Vaults:1 | Found a roughly hewn altar of Beogh.
+ 39445 | Vaults:2 | Found a shimmering altar of Xom.
+ 39775 | Vaults:1 | Received a gift from Okawaru
+ 40060 | Vaults:2 | Reached skill level 18 in Fighting
+ 40568 | Vaults:2 | Received a gift from Okawaru
+ 41078 | Vaults:2 | Received a gift from Okawaru
+ 41277 | Vaults:2 | Received a gift from Okawaru
+ 41288 | Vaults:2 | Reached XP level 18. HP: 173/173 MP: 25/25
+ 42129 | Vaults:3 | Reached skill level 19 in Fighting
+ 42550 | Vaults:4 | Found a portal to a secret trove of treasure.
+ 42826 | Vaults:3 | Received a gift from Okawaru
+ 42894 | Vaults:3 | Found a staircase to the Crypt.
+ 43522 | Vaults:3 | Found a runed translucent gate.
+ 43522 | Vaults:3 | Noticed an ancient lich
+ 43522 | Vaults:3 | Noticed a lich
+ 43523 | Vaults:3 | Found a runed translucent gate.
+ 43523 | Vaults:3 | Found an ancient bone altar of Kikubaaqudgha.
+ 43523 | Vaults:3 | Found a runed translucent gate.
+ 43523 | Vaults:3 | Noticed Xafer's ghost (adept DsGl)
+ 43523 | Vaults:3 | Noticed a lich
+ 43523 | Vaults:3 | Noticed a lich
+ 43625 | Vaults:3 | Reached skill level 20 in Fighting
+ 43680 | Vaults:3 | Noticed a golden dragon
+ 43704 | Vaults:3 | Killed a golden dragon
+ 44483 | Vaults:3 | Paralysed by a great orb of eyes for 6 turns
+ 45803 | Snake:1  | Received a gift from Okawaru
+ 45976 | Snake:1  | Received a gift from Okawaru
+ 46061 | Snake:1  | Reached XP level 19. HP: 185/185 MP: 26/26
+ 46191 | Snake:2  | Found Zyixadiogi's Assorted Antiques.
+ 46191 | Snake:2  | Noticed Jorgrun
+ 46199 | Snake:2  | Killed Jorgrun
+ 46199 | Snake:2  | Received a gift from Okawaru
+ 46210 | Snake:2  | Got a spiked centaur barding {god gift}
+ 46292 | Snake:1  | Identified the +4 centaur barding of Siojopy {+Fly Str+7
+                  | Dex-2} (Okawaru gifted it to you on level 2 of the Snake
+                  | Pit)
+ 46986 | Snake:1  | Found an iron altar of Okawaru.
+ 47272 | Snake:2  | Found Ekleacig's Magic Scroll Boutique.
+ 47272 | Snake:2  | Found Zaosoph's Weapon Shoppe.
+ 47527 | Snake:2  | You fall into a shaft and drop 1 floor!
+ 47600 | Snake:2  | Found Saolis's Gadget Shop.
+ 48558 | Snake:3  | Received a gift from Okawaru
+ 48634 | Snake:3  | Reached skill level 21 in Fighting
+ 48744 | Snake:3  | Received a gift from Okawaru
+ 48762 | Snake:3  | Got a fine shortbow {god gift}
+ 48763 | Snake:3  | Identified the +8 shortbow of the Reaper {speed, +Fly Str+5
+                  | Stlth+} (Okawaru gifted it to you on level 3 of the Snake
+                  | Pit)
+
+Skill      XL: |  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 |
+---------------+----------------------------------------------------------+-----
+Bows           |     6  7  8  9 10 11 12 15 17 19 20                      | 20.0
+Fighting       |                 3  4  5     6  8 10 13 15 16    18 20 21 | 21.1
+Polearms       |                 1  2  4  5                               |  5.0
+Invocations    |                          4  5  6  9 10                   | 10.0
+Armour         |                                      4  6  7 10 12 13 14 | 14.0
+Evocations     |                                         3  6             |  6.1
+Dodging        |                                            4  7          |  7.2
+Stealth        |                                                          |  0.4
+
+Action                   |  1- 3 |  4- 6 |  7- 9 | 10-12 | 13-15 | 16-18 | 19-21 || total
+-------------------------+-------+-------+-------+-------+-------+-------+-------++-------
+Melee: Short sword       |    22 |       |       |       |       |       |       ||    22
+       Kick              |     7 |    17 |    52 |    19 |    31 |       |       ||   126
+       Dagger            |    47 |     8 |       |       |       |       |       ||    55
+       Trident           |       |    92 |   223 |   148 |    90 |       |       ||   553
+       Punch             |       |       |       |     1 |       |       |       ||     1
+ Fire: Shortbow          |    15 |    15 |    23 |       |       |       |       ||    53
+       Longbow           |       |       |   108 |   544 |  1370 |  1552 |   415 ||  3989
+Throw: Stone             |       |     4 |     3 |     1 |     2 |       |       ||    10
+       Dart              |       |       |       |       |     1 |       |       ||     1
+       Javelin           |       |       |       |       |       |     3 |       ||     3
+Invok: Heroism           |       |       |       |     3 |     2 |     6 |       ||    11
+       Finesse           |       |       |       |     1 |     1 |     6 |       ||     8
+ Abil: Evoke Blink       |       |       |       |       |     2 |       |     3 ||     5
+       Evoke Flight      |       |       |       |       |     1 |       |     1 ||     2
+Evoke: Wand              |       |       |       |       |     2 |       |       ||     2
+  Use: Scroll            |       |     2 |    10 |    10 |    23 |    12 |     3 ||    60
+       Potion            |       |       |     7 |     2 |     3 |     5 |       ||    17
+  Eat: Ration            |       |     1 |       |     2 |     1 |     4 |     2 ||    10
+       Chunk             |       |     3 |    13 |    16 |    31 |    21 |     1 ||    85
+Armor: Leather armour    |    27 |    40 |    53 |    38 |       |       |       ||   158
+       Scale mail        |       |       |    30 |       |       |       |       ||    30
+       Chain mail        |       |       |       |    59 |   286 |       |       ||   345
+       Crystal plate arm |       |       |       |       |    43 |   429 |   156 ||   628
+Dodge: Dodged            |    54 |    39 |    84 |    88 |    60 |    42 |    26 ||   393
+       Deflected         |       |       |       |       |       |    19 |     9 ||    28
