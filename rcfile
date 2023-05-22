@@ -5,7 +5,6 @@ default_manual_training = true
 autofight_stop = 75
 
 show_travel_trail = true
-travel_delay = -1
 
 ##
 ## magus.rc
@@ -500,10 +499,6 @@ autofight_caught = true
 rest_wait_percent = 100
 explore_auto_rest = true
 
-# Set to -1 for instant-travel, set to 1 to see travel paths
-travel_delay = -1
-explore_delay = 1
-
 # Adjusts how much autoexplore favours attempting to discover room perimeters and corners.
 # At higher values, autoexplore will more heavily favour visiting squares that are next to walls;
 # at 0 it will not favour them at all.
@@ -522,7 +517,6 @@ runrest_stop_message += Your transformation is almost over.
 ## Interface.rc
 ################################################################################################
 # hp and mp bar coloring
-view_delay = 300
 hp_colour = 100:lightgreen, 99:lightgray, 75:yellow, 50:lightred, 25:red
 mp_colour = 100:cyan, 99:lightgray, 75:yellow, 50:lightred, 25:red
 hp_warning = 50
@@ -1370,15 +1364,8 @@ more += (?-i:[A-Z]).* comes? into view
 ##
 ## Morgue.rc
 ################################################################################################
-dump_item_origins = all
-dump_message_count = 100
-dump_order  = header,hiscore,stats,misc,mutations,skills,spells,inventory
-dump_order += overview,screenshot,monlist,messages,skill_gains,action_counts
-dump_order += vaults,notes,kills,xp_by_level,skill_gains,action_counts,screenshots,kills_by_place,turns_by_place
 
 note_hp_percent = 25
-note_all_skill_levels = true
-note_chat_messages = false
 user_note_prefix = >>
 
 note_items += artefact
@@ -2101,7 +2088,6 @@ msc += $warning:You feel spirits watching over you
 msc += $warning:You feel a genetic drift
 msc += $warning:You return to the normal time flow
 msc ^= $warning:The corpse rots
-msc ^= $warning:You finish butchering the rotting
 msc += $warning:reappears nearby
 msc += $warning:I'll put it outside for you
 msc += $warning:A pair of horns grows on your head
@@ -2263,7 +2249,6 @@ msc += $warning:The.*explodes
 msc += $warning:You are caught in (a fiery explosion|an explosion of ice and frost)
 msc += $warning:stops burning
 msc += $warning:(The |.*)is healed
-msc += $warning:You stop butchering
 msc += $warning:You feel less studious
 msc += $warning:(corpses?|macabre mass) merges with
 msc += $warning:You start to feel a little uncertain
@@ -2541,7 +2526,6 @@ msc += $warning:Your.*shudders
 # Demonspawn gaining a mutation they already have
 msc += $warning:Your mutations feel more permanent
 msc += $warning:Roots rise up from beneath.*and drag it to the ground
-msc ^= $warning:You hunger for vegetation
 msc ^= $warning:You feel a sudden chill
 msc += $warning:You feel hot for a moment
 msc += $warning:stop glowing
@@ -2842,7 +2826,6 @@ msc += $boring:You smell (smoke|something weird)
 msc += $boring:The floor shifts beneath you alarmingly
 msc += $boring:The reaper smiles without lips
 msc += $boring:great wave of water passes through
-msc += $boring:There isn't anything to butcher here
 msc += $boring:crushes a nearby insect and laughs
 msc += $boring:Welcome back to the Dungeon
 msc += $boring:You are blasted with air
@@ -3333,7 +3316,6 @@ msc += $positive:is caught in the net
 msc += $positive:struggles (against|to escape) the net
 msc += $positive:Your fit of retching subsides
 msc += $positive:Your magic seems less tainted
-msc += $positive:You finish butchering
 msc += $positive:You shudder from the blast and a jelly pops out
 msc += $positive:looks weaker
 msc += $positive:falls into the water
@@ -3514,7 +3496,6 @@ msc += $awesome:You begin to radiate miasma
 msc += $awesome:You feel able to eat a more balanced diet
 msc += $awesome:You feel genetically stable
 msc ^= $awesome:You feel a.*healthier
-msc += $awesome:You hunger for flesh
 msc += $awesome:You feel your life force and your magical essence meld
 msc ^= $awesome:You feel your magical essence form a protective shroud around your flesh
 msc += $awesome:You feel your magic shroud grow more resilient
@@ -3525,7 +3506,6 @@ msc += $awesome:You feel cleansed
 msc += $awesome:You are surrounded by darkness
 msc += $awesome:Your skin functions as natural camouflage
 msc += $awesome:You begin to emit a foul stench of rot and decay
-msc += $awesome:You hunger for rotting flesh
 msc ^= $awesome:You feel energised by your suffering
 msc ^= $awesome:You feel even more energised by your suffering
 msc += $awesome:Your teeth lengthen and sharpen
@@ -4077,7 +4057,6 @@ msc += $interface:You cannot walk through the dense trees
 msc += $interface:This wall is too hard to dig through
 msc += $interface:You can't dig through that
 msc += $interface:You are already wielding that
-msc += $interface:There isn't anything suitable to butcher here
 msc ^= $interface:Something interferes with your magic
 msc += $interface:You can only heal others!
 msc += $interface:You are already wielding that
@@ -4154,7 +4133,6 @@ msc += $interface:Hurry and find it before the portal
 msc += $interface:You slide downwards
 msc += $interface:Can't find anything matching that
 msc += $interface:No item to drop
-msc += $interface:you feel a great hunger. Being not satiated
 msc += $interface:You finish taking off
 msc += $interface:appears from thin air
 msc += $interface:You feel more attuned to
@@ -4220,8 +4198,6 @@ msc ^= mute:is almost (dead|destroyed)
 # msc += mute:Okawaru is noncommittal
 # msc += mute:Nemelex Xobeh is (noncommittal|pleased)
 # msc += mute:The plant looks sick
-# msc += mute:You start butchering
-# msc += mute:You continue butchering
 # msc += mute:This raw flesh tastes terrible
 
 # : if string.find(you.god(), "Jiyva") then
@@ -4325,27 +4301,16 @@ force_more_message += monster_warning:Khufu
 
 ## RC FILE FROM ShadowRider38 who learned a lot from Yermak
 ### TEAMCAPTAIN MrDizzy
-##
-###tile_player_tile = tile:cat6
-##
-##tile_font_crt_family = Lucida Console 
-##tile_font_stat_family = Lucida Console 
-##tile_font_msg_family = Lucida Console 
-##tile_font_lbl_family = Lucida Console
-###msg_min_height = 7
-###msg_max_height = 10
-###view_max_height = 21
-##small_more = true
-###msg_webtiles_height = 10
-##
-##note_skill_levels = 1,3,6,9,12,15,18,21,24,27
-##note_chat_messages = true
-##dump_message_count = 50
-##dump_book_spells = false
-##travel_delay = -1
-##explore_delay = -1
-##rest_delay = -1
-##trapwalk_safe_hp = dart:20,needle:15,arrow:35,bolt:45,spear:40,axe:45,blade:95
+
+note_skill_levels = 1,3,6,9,12,15,18,21,24,27
+note_chat_messages = true
+dump_message_count = 50
+dump_book_spells = false
+travel_delay = -1
+explore_delay = -1
+rest_delay = -1
+trapwalk_safe_hp = dart:20,needle:15,arrow:35,bolt:45,spear:40,axe:45,blade:95
+
 ##
 ##{
 ##local need_skills_opened = true
@@ -4519,7 +4484,6 @@ force_more_message += monster_warning:Khufu
 ##view_delay = 35
 ##default_show_all_skills = true
 ##default_manual_training = true
-##confirm_butcher = never
 ##skill_focus = true
 ##show_travel_trail = true
 ##travel_one_unsafe_move = true
@@ -4924,15 +4888,6 @@ force_more_message += monster_warning:Khufu
 ##
 ##### Species, Job, God conditions
 ##
-##: if you.race() == "Ghoul" then
-##auto_eat_chunks = false
-##auto_butcher = full
-##: elseif you.race() == "Felid" or you.race() == "Troll" or you.race() == "Kobold" then
-##auto_butcher = satiated
-##: else
-##auto_eat_chunks = true
-##auto_butcher = hungry
-##: end
 ##
 ##: if true and (you.race() == "Spriggan" or you.race() == "Gnoll") then
 ##default_autopickup = false
@@ -5008,5 +4963,5 @@ force_more_message += monster_warning:Khufu
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.1]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.2]")
 : crawl.enable_more(true)
