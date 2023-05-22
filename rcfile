@@ -7,12 +7,12 @@ autofight_stop = 75
 show_travel_trail = true
 
 ##
-## magus.rc
+## magus_ShadowRider38_sobieck.rc
 ################################################################################################
 ##
 ## BEGIN
 ################################################################################################
-: rc_msg("Initializing magus.rc ...")
+: rc_msg("Initializing magus_ShadowRider38_sobieck.rc ...")
 : crawl.enable_more(false)
 
 ##
@@ -4311,33 +4311,33 @@ explore_delay = -1
 rest_delay = -1
 trapwalk_safe_hp = dart:20,needle:15,arrow:35,bolt:45,spear:40,axe:45,blade:95
 
-##
-##{
-##local need_skills_opened = true
-##function ready()
-##  if you.turns() == 0 and need_skills_opened then
-##    need_skills_opened = false
-##    crawl.sendkeys("m")
-##  end
-##
-##  if crawl.messages(5):find("You enter a gauntlet") and (you.god()=="Lugonu" or you.god()=="Fedhas" or you.god()=="Sif Muna") then
-##    crawl.mpr("Break the walls!")
-##  end
-##
-##  fmore_early_threats()
-##end
-##
-##local fmet = true
-##function fmore_early_threats()
-##  if you.xl() > 13 and fmet then
-##    crawl.setopt("force_more_message -= centaur.* comes? into view")
-##    crawl.setopt("force_more_message -= hydra.* comes? into view")
-##    crawl.setopt("force_more_message -= killer bee.* comes? into view")
-##    crawl.setopt("force_more_message -= electric eel.* comes? into view")
-##    fmet = false
-##  end
-##end
-##
+
+{
+local need_skills_opened = true
+function ready()
+  if you.turns() == 0 and need_skills_opened then
+    need_skills_opened = false
+    crawl.sendkeys("m")
+  end
+
+  if crawl.messages(5):find("You enter a gauntlet") and (you.god()=="Lugonu" or you.god()=="Fedhas" or you.god()=="Sif Muna") then
+    crawl.mpr("Break the walls!")
+  end
+
+  fmore_early_threats()
+end
+
+local fmet = true
+function fmore_early_threats()
+  if you.xl() > 13 and fmet then
+    crawl.setopt("force_more_message -= centaur.* comes? into view")
+    crawl.setopt("force_more_message -= hydra.* comes? into view")
+    crawl.setopt("force_more_message -= killer bee.* comes? into view")
+    crawl.setopt("force_more_message -= electric eel.* comes? into view")
+    fmet = false
+  end
+end
+
 ##local aft = false
 ##function toggle_autothrow()
 ##  if aft then
@@ -4963,5 +4963,5 @@ trapwalk_safe_hp = dart:20,needle:15,arrow:35,bolt:45,spear:40,axe:45,blade:95
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.2]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.3]")
 : crawl.enable_more(true)
