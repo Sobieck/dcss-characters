@@ -305,131 +305,6 @@ end
 }
 
 ##
-## OpenSkills.lua
-################################################################################################
-{
--- Open skills menu at start of runs
-local need_skills_opened = true
-local function start_open_skills()
-  if you.turns() == 0 and need_skills_opened then
-    need_skills_opened = false
-    crawl.sendkeys("m")
-  end
-end
-
--- Runs once when parsed during rc init
-start_open_skills()
-}
-
-##
-## PickupEquipment.lua
-################################################################################################
-{
-local function should_pickup_equip(cur, i2)
-  -- always pickup god gift equipment
-  if i2.god_gift then return true end
-
-  --  not wearing any item in the slot? pickup!
-  if cur == nil then return true end
-
-  -- items names are the same, pickup higher plus
-  if cur.name("qual") == i2.name("qual") then
-    if i2.plus ~= nil and i2.plus > cur.plus then
-      return true
-    end
-  end
-
-  -- wearing artefact/ego/branded? skip pickup
-  if cur.branded or cur.ego() or cur.artefact then return end
-  -- wearing dragon scales? skip pickup
-  if string.find(cur.name("qual"), "dragon scale") then return end
-
-  -- if we got to this point we are not wearing dragon scales/artefact/ego/branded
-  -- pickup if item is ego/branded/plus
-  local plus = i2.plus and i2.plus > 0
-  if i2.branded or i2.ego() or plus then return true end
-
-  return false
-end
-
--- Equipment autopickup (by Medar and various others)
--- Source http://crawl.berotato.org/crawl/rcfiles/crawl-0.23/Freakazoid.rc
-local armour_slots = {cloak="Cloak", helmet="Helmet", gloves="Gloves", boots="Boots", body="Armour", shield="Shield"}
-local two_handed_always = {
-  "great sword", "triple sword",
-  "battleaxe", "executioner's axe",
-  "dire flail", "great mace", "giant club", "giant spiked club",
-  "halberd", "scythe", "glaive", "bardiche",
-  "quarterstaff", "lajatang",
-  "shortbow", "longbow",
-  "arbalest", "triple crossbow"}
-
-local function pickup_equipment(it, name)
-  local class = it.class(true)
-  -- get currently equipped item in slot
-  local currentWeapon = items.equipped_at("weapon")
-
-  -- DEBUG
-  -- rc_msg(string.format("[pickup_equipment] name: %s", name))
-  -- rc_msg(string.format("[pickup_equipment] currentWeapon.subtype: %s", currentWeapon.subtype()))
-
-
-  -- do not pickup forbidden items
-  if string.match(name, "forbidden") then return end
-
-  -- do not pickup useless items
-  if it.is_useless then return end
-
-  -- always pickup artefacts
-  if it.artefact then return true end
-
-
-
-  if class == "weapon" then
-    -- when using unarmed combat, we want to skip the should_pickup_equip for weapons
-    if currentWeapon == nil and you.skill("Unarmed Combat") >= 3 then
-      -- always pickup god gift equipment
-      if it.god_gift then return true end
-
-      return false
-    end
-
-    if should_pickup_equip(currentWeapon, it) then return true end
-
-  elseif class == "armour" then
-    local sub_type = it.subtype()
-
-    if sub_type == "gloves" and you.has_claws() > 0 then return end
-
-    -- skip picking up shields, when
-    if sub_type == "shield" then
-      -- using 2 handed weapons
-      if currentWeapon then
-        if table_has(two_handed_always, currentWeapon.subtype()) then return end
-      end
-
-      -- shield skill less than 3
-      if you.skill("Shields") <= 3 then return end
-    end
-
-    local armor_slot = armour_slots[sub_type];
-
-    if armor_slot ~= nil then
-      -- get currently equipped item in slot
-      local equipped_item = items.equipped_at(armor_slot)
-
-      if should_pickup_equip(equipped_item, it) then return true end
-    end
-  end
-
-  return
-end
-
--- Runs once when parsed during rc init
-add_autopickup_func(pickup_equipment)
-}
-
-##
 ## NoteVersion.lua
 ################################################################################################
 {
@@ -4277,7 +4152,6 @@ force_more_message += wielding .* acid wand
 force_more_message += Your body decomposes!
 force_more_message += Uskayaw will force your foes to helplessly watch your dance.
 
-force_more_message += monster_warning:hydra
 force_more_message += monster_warning:tormentor
 force_more_message += monster_warning:fiend
 force_more_message += monster_warning:tzitzimi
@@ -4300,7 +4174,6 @@ force_more_message += monster_warning:Khufu
 ################################################################################################
 
 ## RC FILE FROM ShadowRider38 who learned a lot from Yermak
-### TEAMCAPTAIN MrDizzy
 
 note_skill_levels = 1,3,6,9,12,15,18,21,24,27
 note_chat_messages = true
@@ -4338,94 +4211,94 @@ function fmore_early_threats()
   end
 end
 
-##local aft = false
-##function toggle_autothrow()
-##  if aft then
-##    crawl.setopt("use_animations += beam, monster")
-##    crawl.setopt("autofight_throw = false")
-##    crawl.mpr("Autofight_throw is off.")
-##  else
-##    crawl.setopt("use_animations -= beam, monster")
-##    crawl.setopt("autofight_throw = true")
-##    crawl.mpr("Autofight_throw is on.")
-##  end
-##  aft = not aft
-##end
-##
-##local cheiwalk = true
-##function toggle_cheiwalk()
-##  if cheiwalk then
-##    crawl.setopt("force_more_message -= comes? into view")
-##    crawl.mpr("Cheiwalk mode is off.")
-##  else
-##    crawl.setopt("force_more_message += comes? into view")
-##    crawl.mpr("Cheiwalk mode is on.")
-##  end
-##  cheiwalk = not cheiwalk
-##end
-##
-##local mmores = false
-##function toggle_more_mores()
-##  if mmores then
-##    crawl.setopt("force_more_message -= Found")
-##    crawl.mpr("Less mores.")
-##  else
-##    crawl.setopt("force_more_message += Found")
-##    crawl.mpr("More mores.")
-##  end
-##  mmores = not mmores
-##end
-##
-##local portalmode = false
-##function toggle_portal_mode()
-##  if portalmode then
-##    crawl.setopt("show_game_time = false")
-##    crawl.mpr("Portal mode is off.")
-##  else
-##    crawl.setopt("show_game_time = true")
-##    crawl.mpr("Portal mode is on.")
-##  end
-##  portalmode = not portalmode
-##end
-##
-##local autorestmode = true
-##function toggle_autorest()
-##  if autorestmode then
-##    crawl.setopt("explore_auto_rest = false")
-##    crawl.mpr("Autorest mode is off.")
-##  else
-##    crawl.setopt("explore_auto_rest = true")
-##    crawl.mpr("Autorest mode is on.")
-##  end
-##  autorestmode = not autorestmode
-##end
-##
-##local function autopickup(it, name)
-##  local class = it.class(true)
-##  local weap = items.equipped_at("Weapon")
-##  local shie = items.equipped_at("Shield")
-##  if it.is_useless then return false end
-##  if class == "armour" then
-##    local aux_slots = {cloak="Cloak", helmet="Helmet",
-##      gloves="Gloves", boots="Boots", shield="Shield"}
-##    st, _ = it.subtype()
-##    if aux_slots[st] == "Shield" then
-##      if (weap == nil or weap.hands == 1) and (shie == nil or it.branded) then
-##        return true
-##      end
-##    elseif aux_slots[st] ~= nil and items.equipped_at(aux_slots[st]) == nil then
-##      return true
-##    elseif st ~= "body" and it.branded then
-##      return true
-##    end 
-##  end
-##  return nil
-##end
-##
-##add_autopickup_func(autopickup)
-##}
-##
-##
+local aft = false
+function toggle_autothrow()
+  if aft then
+    crawl.setopt("use_animations += beam, monster")
+    crawl.setopt("autofight_throw = false")
+    crawl.mpr("Autofight_throw is off.")
+  else
+    crawl.setopt("use_animations -= beam, monster")
+    crawl.setopt("autofight_throw = true")
+    crawl.mpr("Autofight_throw is on.")
+  end
+  aft = not aft
+end
+
+local cheiwalk = true
+function toggle_cheiwalk()
+  if cheiwalk then
+    crawl.setopt("force_more_message -= comes? into view")
+    crawl.mpr("Cheiwalk mode is off.")
+  else
+    crawl.setopt("force_more_message += comes? into view")
+    crawl.mpr("Cheiwalk mode is on.")
+  end
+  cheiwalk = not cheiwalk
+end
+
+local mmores = false
+function toggle_more_mores()
+  if mmores then
+    crawl.setopt("force_more_message -= Found")
+    crawl.mpr("Less mores.")
+  else
+    crawl.setopt("force_more_message += Found")
+    crawl.mpr("More mores.")
+  end
+  mmores = not mmores
+end
+
+local portalmode = false
+function toggle_portal_mode()
+  if portalmode then
+    crawl.setopt("show_game_time = false")
+    crawl.mpr("Portal mode is off.")
+  else
+    crawl.setopt("show_game_time = true")
+    crawl.mpr("Portal mode is on.")
+  end
+  portalmode = not portalmode
+end
+
+local autorestmode = true
+function toggle_autorest()
+  if autorestmode then
+    crawl.setopt("explore_auto_rest = false")
+    crawl.mpr("Autorest mode is off.")
+  else
+    crawl.setopt("explore_auto_rest = true")
+    crawl.mpr("Autorest mode is on.")
+  end
+  autorestmode = not autorestmode
+end
+
+local function autopickup(it, name)
+  local class = it.class(true)
+  local weap = items.equipped_at("Weapon")
+  local shie = items.equipped_at("Shield")
+  if it.is_useless then return false end
+  if class == "armour" then
+    local aux_slots = {cloak="Cloak", helmet="Helmet",
+      gloves="Gloves", boots="Boots", shield="Shield"}
+    st, _ = it.subtype()
+    if aux_slots[st] == "Shield" then
+      if (weap == nil or weap.hands == 1) and (shie == nil or it.branded) then
+        return true
+      end
+    elseif aux_slots[st] ~= nil and items.equipped_at(aux_slots[st]) == nil then
+      return true
+    elseif st ~= "body" and it.branded then
+      return true
+    end 
+  end
+  return nil
+end
+
+add_autopickup_func(autopickup)
+}
+
+
 ##### Macros
 ##
 ##macros += K1 \{-1018} \{27}
@@ -4886,82 +4759,71 @@ end
 ##}
 ##
 ##
-##### Species, Job, God conditions
-##
-##
-##: if true and (you.race() == "Spriggan" or you.race() == "Gnoll") then
-##default_autopickup = false
-##: else
-##default_autopickup = true
-##: end
-##
-###: if you.race() == "Ghoul" or you.race() == "Felid" or you.race() == "Troll" or you.race() == "Kobold" then
-##easy_eat_chunks = true
-###: end
-##
-##: if you.race() == "Ghoul" or you.race() == "Mummy" then
-##ae += <scrolls? of torment
-##:else
-##ae += >scrolls? of torment
-##: end
-##
-##: if you.race() == "Tengu" or you.race() == "Merfolk" or you.race() == "Barachi" or you.race() == "Octopode" then
-##ae += >potions? of flight
-##: end
-##
-##: if you.race() == "Vampire" or you.race() == "Mummy" or you.race() == "Ghoul" or you.race() == "Demonspawn" then
-##ae += >scrolls? of holy word
-##: end
-##
-##: if you.race() == "Ogre" or you.race() == "Troll" then
-##ae += <large rock
-##ae += <javelin
-##: end
-##
-##: if you.god() == "Trog" then
-##ae += >potions? of brilliance
-##ae += >potions? of berserk
-##ae += >magical staff
-##: end
-##
-##: if you.god() == "Zin" then
-##ae ^= <potions? of ambro
-##:else 
-##ae += >potions? of ambro
-##: end
-##
-##: if you.god() == "Cheibriados"then
-##default_autopickup = false
-##force_more_message += comes? into view
-##: end
-##
-##: if you.race() == "Barachi" then
-##force_more_message += comes? into view
-##: end
-##
-##: if you.god() == "Fedhas" then
-##autoinscribe += fruit:!e
-##: end
-##
-##
-##: if false then
-##ae += >potions? of brilliance
-##ae += >book
-##ae += >ring of int
-##skill_focus = true
-##: end
-##
-###force_more_message += comes? into view
-###force_more_message += Found a stone staircase
-###force_more_message += Found
-###force_more_message += paralyse.*in retribution
-##
-##show_more = false
-###autofight_throw = true
-##
+### Species, Job, God conditions
+
+
+: if true and (you.race() == "Spriggan" or you.race() == "Gnoll") then
+default_autopickup = false
+: else
+default_autopickup = true
+: end
+
+: if you.race() == "Ghoul" or you.race() == "Mummy" then
+ae += <scrolls? of torment
+:else
+ae += >scrolls? of torment
+: end
+
+: if you.race() == "Tengu" or you.race() == "Merfolk" or you.race() == "Barachi" or you.race() == "Octopode" then
+ae += >potions? of flight
+: end
+
+: if you.race() == "Vampire" or you.race() == "Mummy" or you.race() == "Ghoul" or you.race() == "Demonspawn" then
+ae += >scrolls? of holy word
+: end
+
+: if you.race() == "Ogre" or you.race() == "Troll" then
+ae += <large rock
+ae += <javelin
+: end
+
+: if you.god() == "Trog" then
+ae += >potions? of brilliance
+ae += >potions? of berserk
+ae += >magical staff
+: end
+
+: if you.god() == "Zin" then
+ae ^= <potions? of ambro
+:else 
+ae += >potions? of ambro
+: end
+
+: if you.god() == "Cheibriados"then
+default_autopickup = false
+force_more_message += comes? into view
+: end
+
+: if you.race() == "Barachi" then
+force_more_message += comes? into view
+: end
+
+: if false then
+ae += >potions? of brilliance
+ae += >book
+ae += >ring of int
+skill_focus = true
+: end
+
+#force_more_message += comes? into view
+#force_more_message += Found a stone staircase
+#force_more_message += Found
+#force_more_message += paralyse.*in retribution
+
+show_more = false
+autofight_throw = true
 
 
 
-
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.3]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.4]")
 : crawl.enable_more(true)
