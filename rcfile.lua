@@ -10,8 +10,6 @@
 
 ## RC FILE FROM ShadowRider38 who learned a lot from Yermak
 
-# TEAMCAPTAIN MrDizzy
-
 #tile_player_tile = tile:cat6
 
 tile_font_crt_family = Lucida Console 
@@ -172,25 +170,19 @@ macros += K3 \{-1018} \{27}
 
 #macros += K4 . ,
 
-macros += M \{-274} ===toggle_cheiwalk
-macros += M \{-273} ===toggle_autothrow
-macros += M \{-272} ===toggle_autorest
-macros += M \{-269} zY
-macros += M \{-268} Za+
-macros += M \{-267} za\{32}
-macros += M \{-266} f+
-macros += M \{-265} f.
-macros += M \{-250} zb
-macros += M \{25} ===toggle_more_mores
-macros += M \{4} \{5}
-macros += M \{5} \{20}
-macros += M ( [
-macros += M \{-1016} \{9}
-macros += M \{-1018} o
-#macros += M . ,
-macros += M [ (
-macros += M ] )
-macros += M z Z
+macros += M \{-265} iAw\{27}\{27}zA
+macros += M \{-266} iAw\{27}\{27}zB
+macros += M \{-267} iAw\{27}\{27}zC
+macros += M \{-268} iAw\{27}\{27}zD
+macros += M \{-269} iBw\{27}\{27}zE
+macros += M \{-270} iBw\{27}\{27}zF
+macros += M \{-271} iBw\{27}\{27}zG
+macros += M \{-272} iBw\{27}\{27}zH
+macros += M \{-248} ===toggle_autothrow
+macros += M \{-249} ===toggle_cheiwalk
+macros += M \{-250} ===toggle_autorest
+macros += M \{-255} ===toggle_more_mores
+macros += M \{-246} ===toggle_zigmode 
 
 
 ### EN0N's Mini-Map Color Scheme
@@ -247,9 +239,9 @@ runrest_safe_poison = 100:100
 #interrupt_armour_off -= hp_loss
 interrupt_memorise -= hp_loss
 interrupt_memorise -= monster
-autofight_stop = 40
+autofight_stop = 60
 explore_auto_rest = true
-explore_stop = items,stairs,shops,altars,portals,branches,runed_doors
+explore_stop = items,stairs,shops,altars,portals,branches,runed_doors,faded_alters
 explore_stop += greedy_pickup_smart,artefacts
 tile_show_demon_tier = true
 
@@ -314,68 +306,6 @@ as ^= Stop Flying: m
 as ^= Spit:        q
 as ^= Breath:      q
 as ^= Rolling:     r
-
-ss := spell_slot
-
-ss ^= Apportation: g
-ss ^= Blink:       d
-ss ^= Lesser Beck: e
-ss ^= Portal Proj: J
-ss ^= Teleport Ot: t
-ss ^= Warp Weapon: W
-ss ^= Passage of:  z
-ss ^= Phase Shift: p
-ss ^= Summon Fore: F
-ss ^= ontrolled B: C
-ss ^= Control Tel: k
-
-ss ^= Song of Sla: y
-ss ^= Missiles:    f
-ss ^= Flight:      l
-ss ^= Regeneratio: R
-ss ^= Shroud of G: h
-ss ^= Spectral We: W
-ss ^= Ozocubu:     b
-ss ^= Haste:       H
-
-ss ^= Confus:      x
-ss ^= Tukima's Da: t
-ss ^= Invisibilit: i
-ss ^= Enslavement: v
-ss ^= Dazzling Sp: q
-
-ss ^= Animate Ske: h
-ss ^= Sublimation: Z
-ss ^= Corpse Rot:  r
-ss ^= Vampiric Dr: v
-ss ^= Control Und: U
-ss ^= Dispel Unde: u
-ss ^= Animate Dea: E
-ss ^= Borgnjor's : w
-
-ss ^= Sticks to S: s
-ss ^= Spider Form: O
-ss ^= Ice Form:    I
-ss ^= Blade Hands: u
-ss ^= Statue Form: Y
-ss ^= Dragon Form: T
-ss ^= Irradiate:   Q
-
-ss ^= Stone Skin:  s
-ss ^= Passwall:    c
-ss ^= Frozen Ramp: c
-ss ^= Petrify:     p
-ss ^= Lee's Rapid: l
-ss ^= Summon Butt: B
-ss ^= Aura of Abj: A
-ss ^= Summon Ligh: L
-ss ^= Freezing Cl: f
-ss ^= Conjure Fla: j
-ss ^= Mephitic Cl: m
-ss ^= Olgreb's To: t
-ss ^= Cure Poison: w
-ss ^= Bolt:        w
-ss ^= Fireball:    e
 
 is := item_slot
 
@@ -602,35 +532,7 @@ msc ^= darkgrey: You now have
 msc ^= mute: begin reading
 
 
-### Squelch stupid prompts
-
-{
-function c_answer_prompt(prompt)
-  if prompt == "Annotate level on other end of current stairs?" then
-    return false
-  end
-end
-}
-{
-function c_answer_prompt(prompt)
-  if prompt == "Are you sure you want to leave the Dungeon? This will make you lose the game!" then
-    return false
-  end
-end
-}
-
-
 ### Species, Job, God conditions
-
-: if you.race() == "Ghoul" then
-auto_eat_chunks = false
-auto_butcher = full
-: elseif you.race() == "Felid" or you.race() == "Troll" or you.race() == "Kobold" then
-auto_butcher = satiated
-: else
-auto_eat_chunks = true
-auto_butcher = hungry
-: end
 
 : if true and (you.race() == "Spriggan" or you.race() == "Gnoll") then
 default_autopickup = false
@@ -725,10 +627,6 @@ show_more = false
     end
   end
   }
-   
-  macros += M {-270} ===toggle_zigmode 
-
-
 -- ### Magus
 
 ##
@@ -851,5 +749,5 @@ force_more_message += monster_warning:Khufu
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.7]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.8]")
 : crawl.enable_more(true)
