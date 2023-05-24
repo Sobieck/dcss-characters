@@ -52,10 +52,16 @@ local safe = you.feel_safe()
 function update_safe()
   local old_safe = safe
   safe = you.feel_safe()
-  if not safe and old_safe then
-    crawl.mpr("Danger!", "warning")
-    crawl.more()
+  local exploring = crawl.messages(5):find("Exploring")
+  if (not safe and old_safe) and (not exploring) then
+      crawl.mpr("Danger!", "warning")
+      crawl.more()
   end
+end
+
+function explore_message()
+  crawl.mpr("Exploring")
+  crawl.sendkeys("o")
 end
 
 local fmet = true
@@ -183,6 +189,7 @@ macros += M \{-249} ===toggle_cheiwalk
 macros += M \{-250} ===toggle_autorest
 macros += M \{-255} ===toggle_more_mores
 macros += M \{-246} ===toggle_zigmode 
+macros += M o ===explore_message
 
 
 ### EN0N's Mini-Map Color Scheme
@@ -540,10 +547,6 @@ default_autopickup = false
 default_autopickup = true
 : end
 
-#: if you.race() == "Ghoul" or you.race() == "Felid" or you.race() == "Troll" or you.race() == "Kobold" then
-easy_eat_chunks = true
-#: end
-
 : if you.race() == "Ghoul" or you.race() == "Mummy" then
 ae += <scrolls? of torment
 :else
@@ -583,11 +586,6 @@ force_more_message += comes? into view
 : if you.race() == "Barachi" then
 force_more_message += comes? into view
 : end
-
-: if you.god() == "Fedhas" then
-autoinscribe += fruit:!e
-: end
-
 
 : if false then
 ae += >potions? of brilliance
@@ -749,5 +747,5 @@ force_more_message += monster_warning:Khufu
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.8]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.11]")
 : crawl.enable_more(true)
