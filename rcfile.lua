@@ -10,18 +10,6 @@
 
 ## RC FILE FROM ShadowRider38 who learned a lot from Yermak
 
-#tile_player_tile = tile:cat6
-
-tile_font_crt_family = Lucida Console 
-tile_font_stat_family = Lucida Console 
-tile_font_msg_family = Lucida Console 
-tile_font_lbl_family = Lucida Console
-#msg_min_height = 7
-#msg_max_height = 10
-#view_max_height = 21
-small_more = true
-#msg_webtiles_height = 10
-
 note_skill_levels = 1,3,6,9,12,15,18,21,24,27
 note_chat_messages = true
 dump_message_count = 50
@@ -47,21 +35,73 @@ function ready()
   update_safe()
 end
 
+-- Alert when unsafe when manually exploring
+
 local safe = you.feel_safe()
+exploring = false
 
 function update_safe()
   local old_safe = safe
   safe = you.feel_safe()
-  local exploring = crawl.messages(5):find("Exploring")
   if (not safe and old_safe) and (not exploring) then
       crawl.mpr("Danger!", "warning")
       crawl.more()
   end
 end
 
-function explore_message()
-  crawl.mpr("Exploring")
+function explore()
+  exploring = true
   crawl.sendkeys("o")
+end
+
+function manual_1()
+  if(exploring == true) then
+    exploring = false
+  end
+  crawl.sendkeys("1")
+end
+
+function manual_2()
+  if(exploring == true) then
+    exploring = false
+  end
+  crawl.sendkeys("2")
+end
+function manual_3()
+  if(exploring == true) then
+    exploring = false
+  end
+  crawl.sendkeys("3")
+end
+function manual_4()
+  if(exploring == true) then
+    exploring = false
+  end
+  crawl.sendkeys("4")
+end
+function manual_6()
+  if(exploring == true) then
+    exploring = false
+  end
+  crawl.sendkeys("6")
+end
+function manual_7()
+  if(exploring == true) then
+    exploring = false
+  end
+  crawl.sendkeys("7")
+end
+function manual_8()
+  if(exploring == true) then
+    exploring = false
+  end
+  crawl.sendkeys("8")
+end
+function manual_9()
+  if(exploring == true) then
+    exploring = false
+  end
+  crawl.sendkeys("9")
 end
 
 local fmet = true
@@ -189,7 +229,18 @@ macros += M \{-249} ===toggle_cheiwalk
 macros += M \{-250} ===toggle_autorest
 macros += M \{-255} ===toggle_more_mores
 macros += M \{-246} ===toggle_zigmode 
-macros += M o ===explore_message
+
+## Alert when unsafe when manually exploring
+
+macros += M o ===explore
+macros += M \{-1001} ===manual_1
+macros += M \{-1002} ===manual_2
+macros += M \{-1003} ===manual_3
+macros += M \{-1004} ===manual_4
+macros += M \{-1006} ===manual_6
+macros += M \{-1007} ===manual_7
+macros += M \{-1008} ===manual_8
+macros += M \{-1009} ===manual_9
 
 
 ### EN0N's Mini-Map Color Scheme
@@ -229,7 +280,7 @@ simple_targeting = false
 force_spell_targeter = eringya's noxious bog
 force_ability_targeter = sanctuary, word of chaos, recite, elemental force, oozemancy, drain life, disaster area, corrupt, foxfire swarm
 tile_web_mouse_control = false
-tile_show_threat_levels =
+tile_show_threat_levels = tough, nasty
 fire_order = launcher, boomerang, rock, poisoned dart, javelin, stone
 
 runrest_ignore_message += blood rots? away
@@ -248,7 +299,7 @@ interrupt_memorise -= hp_loss
 interrupt_memorise -= monster
 autofight_stop = 60
 explore_auto_rest = true
-explore_stop = items,stairs,shops,altars,portals,branches,runed_doors,faded_alters
+explore_stop = items,stairs,shops,altars,portals,branches,runed_doors
 explore_stop += greedy_pickup_smart,artefacts
 tile_show_demon_tier = true
 
@@ -747,5 +798,5 @@ force_more_message += monster_warning:Khufu
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.11]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.12]")
 : crawl.enable_more(true)
