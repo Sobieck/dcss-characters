@@ -766,15 +766,6 @@ end
 -- rc_out("COLORS", COLORS.brown, COLORS.brown)
 }
 
-force_more_message += wielding .* distortion
-force_more_message += wielding .* Holy Wrath
-force_more_message += You feel your power leaking away.
-force_more_message += You feel you are being watched by something.
-force_more_message += A sentinel's mark forms upon you
-force_more_message += wielding .* acid wand
-force_more_message += Your body decomposes!
-force_more_message += Uskayaw will force your foes to helplessly watch your dance.
-
 force_more_message += monster_warning:tormentor
 force_more_message += monster_warning:fiend
 force_more_message += monster_warning:tzitzimi
@@ -798,5 +789,5 @@ force_more_message += monster_warning:Khufu
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.12]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.13]")
 : crawl.enable_more(true)
