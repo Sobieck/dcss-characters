@@ -394,12 +394,12 @@ is ^= throwing net:Z
 is ^= scroll of remove curse:W
 is ^= scroll of identify:R
 is ^= scroll of teleportation:T
-is ^= scroll of blinking:B
+is ^= scroll of blinking:b
 is ^= scroll of magic map:M
 is ^= potion of flight:l
 is ^= potion of curing:Q
 is ^= potion of haste:H
-is ^= wand of acid:A
+is ^= wand of acid:a
 is ^= wand of digg:D
 is ^= wand of ensl:E
 is ^= wand of char:E
@@ -789,5 +789,5 @@ force_more_message += monster_warning:Khufu
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.13]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.14]")
 : crawl.enable_more(true)
