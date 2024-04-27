@@ -152,13 +152,19 @@ ae := autopickup_exceptions
 ae += >ring of (poi|resist cor|fli|see)
 ae += >amulet of (the acr|fai|the gou|gua|har|mag|rag|ref|reg)
 
-ae += >scrolls? of (amn|noise)
+ae += <throwing net
+ae += <dart
+ae += <javelin 
+ae += <stone
+ae += <large rock
+ae += <boomerang
+
+ae += >scrolls? of (amn)
 ae += >wand of rand
 ae += >ring of (protection from (mag|fire|cold)|mag|ste|ice|fire|pos|wil|wiz)
 ae += >ring of (dex|int|str)
 ae ^= <potions? of (ambr|attr|lign|mut)
 ae ^= <scrolls? of (immolation|vulnerability)
-ae += <(curare|throwing net)
 ae += <(lamp of fire|phial of floods|lightning rod|figurine|condenser vane)
 ae ^= <tin of tremorstones
 ae += <sack of spiders
@@ -842,11 +848,21 @@ hp_warning = 70
     end
   end
 
+  function OnSh_set_skills() 
+    if you.race() == "Oni" and you.class() == "Shapeshifter" then
+      set_and_train("Fighting", 12)
+      set_and_focus("Unarmed Combat", 12)
+      set_and_train("Shapeshifting", 11)
+      set_and_train("Dodging", 8)
+    end
+  end
+
   function manage_skills()
     untrain_all_skills()
     MDEE_set_skills()
     MDFe_set_skills()
     OnWp_set_skills()
+    OnSh_set_skills()
   end
 
   }
@@ -857,5 +873,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.29]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.31]")
 : crawl.enable_more(true)
