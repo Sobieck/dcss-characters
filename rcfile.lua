@@ -604,12 +604,12 @@ hp_warning = 70
       
       crawl.sendkeys("m")
     end
-  
-    if crawl.messages(5):find("to the Vaults") then
+
+    if crawl.messages(5):find("You climb downwards.") and you.depth() == 2 and you.branch() == "V" then
       annotate_v5()
     end
 
-    if crawl.messages(5):find("downwards") and you.depth() == 4 and you.branch() == "Dungeon" then
+    if crawl.messages(5):find("You climb downwards.") and you.depth() == 4 and you.branch() == "D" then
       crawl.sendkeys("r")
     end
   
