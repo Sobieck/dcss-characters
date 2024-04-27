@@ -1,3 +1,6 @@
+# TEAMNAME Future Player Ghosts
+# TEAMMEMBERS benadryl Graveyardigan billy1time ryathie mollymolluskus
+
 ##
 ## magus_ShadowRider38_sobieck.rc
 ################################################################################################
@@ -18,189 +21,7 @@ travel_delay = -1
 explore_delay = -1
 rest_delay = -1
 trapwalk_safe_hp = dart:20,needle:15,arrow:35,bolt:45,spear:40,axe:45,blade:95
-
-{
-local need_skills_opened = true
-function ready()
-  if you.turns() == 0 and need_skills_opened then
-    need_skills_opened = false
-    crawl.sendkeys("m")
-  end
-
-  if crawl.messages(5):find("You enter a gauntlet") and (you.god()=="Lugonu" or you.god()=="Fedhas" or you.god()=="Sif Muna") then
-    crawl.mpr("Break the walls!")
-  end
-
-  fmore_early_threats()
-  update_safe()
-end
-
--- Alert when unsafe when manually exploring
-
-local safe = you.feel_safe()
-exploring = false
-
-function update_safe()
-  local old_safe = safe
-  safe = you.feel_safe()
-  if (not safe and old_safe) and (not exploring) then
-      crawl.mpr("Danger!", "warning")
-      crawl.more()
-  end
-end
-
-function explore()
-  exploring = true
-  crawl.sendkeys("o")
-end
-
-function manual_1()
-  if(exploring == true) then
-    exploring = false
-  end
-  crawl.sendkeys("1")
-end
-
-function manual_2()
-  if(exploring == true) then
-    exploring = false
-  end
-  crawl.sendkeys("2")
-end
-function manual_3()
-  if(exploring == true) then
-    exploring = false
-  end
-  crawl.sendkeys("3")
-end
-function manual_4()
-  if(exploring == true) then
-    exploring = false
-  end
-  crawl.sendkeys("4")
-end
-function manual_6()
-  if(exploring == true) then
-    exploring = false
-  end
-  crawl.sendkeys("6")
-end
-function manual_7()
-  if(exploring == true) then
-    exploring = false
-  end
-  crawl.sendkeys("7")
-end
-function manual_8()
-  if(exploring == true) then
-    exploring = false
-  end
-  crawl.sendkeys("8")
-end
-function manual_9()
-  if(exploring == true) then
-    exploring = false
-  end
-  crawl.sendkeys("9")
-end
-
-local fmet = true
-function fmore_early_threats()
-  if you.xl() > 13 and fmet then
-    crawl.setopt("force_more_message -= centaur.* comes? into view")
-    crawl.setopt("force_more_message -= hydra.* comes? into view")
-    crawl.setopt("force_more_message -= killer bee.* comes? into view")
-    crawl.setopt("force_more_message -= electric eel.* comes? into view")
-    fmet = false
-  end
-end
-
-local aft = false
-function toggle_autothrow()
-  if aft then
-    crawl.setopt("use_animations += beam, monster")
-    crawl.setopt("autofight_throw = false")
-    crawl.mpr("Autofight_throw is off.")
-  else
-    crawl.setopt("use_animations -= beam, monster")
-    crawl.setopt("autofight_throw = true")
-    crawl.mpr("Autofight_throw is on.")
-  end
-  aft = not aft
-end
-
-local cheiwalk = true
-function toggle_cheiwalk()
-  if cheiwalk then
-    crawl.setopt("force_more_message -= comes? into view")
-    crawl.mpr("Cheiwalk mode is off.")
-  else
-    crawl.setopt("force_more_message += comes? into view")
-    crawl.mpr("Cheiwalk mode is on.")
-  end
-  cheiwalk = not cheiwalk
-end
-
-local mmores = false
-function toggle_more_mores()
-  if mmores then
-    crawl.setopt("force_more_message -= Found")
-    crawl.mpr("Less mores.")
-  else
-    crawl.setopt("force_more_message += Found")
-    crawl.mpr("More mores.")
-  end
-  mmores = not mmores
-end
-
-local portalmode = false
-function toggle_portal_mode()
-  if portalmode then
-    crawl.setopt("show_game_time = false")
-    crawl.mpr("Portal mode is off.")
-  else
-    crawl.setopt("show_game_time = true")
-    crawl.mpr("Portal mode is on.")
-  end
-  portalmode = not portalmode
-end
-
-local autorestmode = true
-function toggle_autorest()
-  if autorestmode then
-    crawl.setopt("explore_auto_rest = false")
-    crawl.mpr("Autorest mode is off.")
-  else
-    crawl.setopt("explore_auto_rest = true")
-    crawl.mpr("Autorest mode is on.")
-  end
-  autorestmode = not autorestmode
-end
-
-local function autopickup(it, name)
-  local class = it.class(true)
-  local weap = items.equipped_at("Weapon")
-  local shie = items.equipped_at("Shield")
-  if it.is_useless then return false end
-  if class == "armour" then
-    local aux_slots = {cloak="Cloak", helmet="Helmet",
-      gloves="Gloves", boots="Boots", shield="Shield"}
-    st, _ = it.subtype()
-    if aux_slots[st] == "Shield" then
-      if (weap == nil or weap.hands == 1) and (shie == nil or it.branded) then
-        return true
-      end
-    elseif aux_slots[st] ~= nil and items.equipped_at(aux_slots[st]) == nil then
-      return true
-    elseif st ~= "body" and it.branded then
-      return true
-    end 
-  end
-  return nil
-end
-
-add_autopickup_func(autopickup)
-}
+ability_slot = a
 
 
 ### Macros
@@ -224,6 +45,9 @@ macros += M \{-269} iBw\{27}\{27}zE
 macros += M \{-270} iBw\{27}\{27}zF
 macros += M \{-271} iBw\{27}\{27}zG
 macros += M \{-272} iBw\{27}\{27}zH
+macros += M \{-273} iCw\{27}\{27}zI
+macros += M \{-274} iCw\{27}\{27}zJ
+
 macros += M \{-248} ===toggle_autothrow
 macros += M \{-249} ===toggle_cheiwalk
 macros += M \{-250} ===toggle_autorest
@@ -280,7 +104,6 @@ simple_targeting = false
 force_spell_targeter = eringya's noxious bog
 force_ability_targeter = sanctuary, word of chaos, recite, elemental force, oozemancy, drain life, disaster area, corrupt, foxfire swarm
 tile_web_mouse_control = false
-tile_show_threat_levels = tough, nasty
 fire_order = launcher, boomerang, rock, poisoned dart, javelin, stone
 
 runrest_ignore_message += blood rots? away
@@ -353,14 +176,10 @@ ae += <artefact
 ae += <magical staff
 ae ^= >staff of
 
-as := ability_slot
-
 as ^= End Transfo: t
 as ^= Evoke Invis: i
 as ^= Turn Visibl: j
 as ^= Evoke Fligh: l
-as ^= Fly:         l
-as ^= Stop Flying: m
 as ^= Spit:        q
 as ^= Breath:      q
 as ^= Rolling:     r
@@ -394,12 +213,10 @@ is ^= throwing net:Z
 is ^= scroll of remove curse:W
 is ^= scroll of identify:R
 is ^= scroll of teleportation:T
-is ^= scroll of blinking:b
 is ^= scroll of magic map:M
 is ^= potion of flight:l
 is ^= potion of curing:Q
 is ^= potion of haste:H
-is ^= wand of acid:a
 is ^= wand of digg:D
 is ^= wand of ensl:E
 is ^= wand of char:E
@@ -408,7 +225,6 @@ is ^= wand of clou:O
 is ^= wand of para:P
 is ^= wand of scat:S
 is ^= wand of flam:V
-is ^= food:z
 is ^= mirror:K
 is ^= vane:O
 is ^= box:X
@@ -420,7 +236,7 @@ is ^= tin of t:Y
 
 force_more_message -= You finish merging with the rock
 
-#force_more_message += You have reached level
+force_more_message += You have reached level
 force_more_message += You fall through a shaft
 force_more_message += You enter a teleport trap
 force_more_message += You are suddenly yanked
@@ -470,7 +286,6 @@ force_more_message += hydra.* comes? into view
 #force_more_message += killer bee.* comes? into view
 force_more_message += electric eel.* comes? into view
 
-force_more_message += wielding.* distortion.* comes? into view
 force_more_message += floating eye.* comes? into view
 force_more_message += carrying a wand
 force_more_message += serpent.* comes? into view
@@ -494,7 +309,6 @@ force_more_message += You found a shaft
 runrest_stop_message += You found a shaft
 
 flash_screen_message += You are slowing down
-flash_screen_message += wielding.* distortion.* comes? into view
 flash_screen_message += Ashenzari invites you to partake
 flash_screen_message += Ru believes you are ready to make a new sacrifice
 flash_screen_message += Vehumet offers you knowledge
@@ -551,7 +365,6 @@ channel.timed_portal = lightgreen
 # Danger
 msc ^= red: you shout at
 msc ^= red: carrying a wand
-msc ^= red: distortion.* comes? into view
 msc ^= red: floating eye.* comes? into view
 msc ^= red: You are slowing down
 msc ^= red: you cannot.* because
@@ -783,11 +596,267 @@ force_more_message += monster_warning:Tiamat
 force_more_message += monster_warning:Jorgrun
 force_more_message += monster_warning:Khufu
 
+force_more_message += (?!.(Here|Aim):).wielding.of (distortion|chaos)
+
+hp_warning = 70
+
+{
+  local need_skills_opened = true
+  function ready()
+    if you.turns() == 0 and need_skills_opened then
+      need_skills_opened = false
+      annotate_v5()
+      manage_skills()
+      crawl.sendkeys("m")
+    end
+  
+    if crawl.messages(5):find("You enter a gauntlet") and (you.god()=="Lugonu" or you.god()=="Fedhas" or you.god()=="Sif Muna") then
+      crawl.mpr("Break the walls!")
+    end
+  
+    fmore_early_threats()
+    update_safe()
+  end
+  
+  -- Alert when unsafe when manually exploring
+  
+  local safe = you.feel_safe()
+  exploring = false
+  
+  function annotate_v5() 
+    crawl.sendkeys("!")
+    crawl.sendKeys("V")
+    crawl.sendKeys("5")
+    crawl.sendKeys("! DO NOT GO UNLESS READY. BAD STUFF HAPPENS HERE")
+  end
+  
+  -- https://tavern.dcss.io/t/function-ready-no-longer-works/704/8
+  function untrain_all_skills()
+    skill_list = {"Fighting","Short Blades","Long Blades","Axes","Maces & Flails",
+                  "Polearms","Staves","Unarmed Combat",
+                  "Throwing","Slings","Armour","Dodging","Shields","Spellcasting",
+                  "Conjurations","Hexes","Charms","Summonings","Necromancy",
+                  "Translocations","Transmutations","Fire Magic","Ice Magic",
+                  "Air Magic","Earth Magic","Alchemy","Invocations",
+                  "Evocations","Stealth"}
+    for i, sk in ipairs(skill_list) do
+      you.train_skill(sk, 0)
+    end
+  end
+  
+  function set_and_train(skillname, amount) 
+      you.set_training_target(skillname, amount)
+      you.train_skill(skillname, 1)
+  end
+  
+  function set_and_focus(skillname, amount) 
+    you.set_training_target(skillname, amount)
+    you.train_skill(skillname, 2)
+  end
+  
+  function update_safe()
+    local old_safe = safe
+    safe = you.feel_safe()
+    if (not safe and old_safe) and (not exploring) then
+        crawl.mpr("Danger!", "warning")
+        crawl.more()
+    end
+  end
+  
+  function explore()
+    exploring = true
+    crawl.sendkeys("o")
+  end
+  
+  function manual_1()
+    if(exploring == true) then
+      exploring = false
+    end
+    crawl.sendkeys("1")
+  end
+  
+  function manual_2()
+    if(exploring == true) then
+      exploring = false
+    end
+    crawl.sendkeys("2")
+  end
+  function manual_3()
+    if(exploring == true) then
+      exploring = false
+    end
+    crawl.sendkeys("3")
+  end
+  function manual_4()
+    if(exploring == true) then
+      exploring = false
+    end
+    crawl.sendkeys("4")
+  end
+  function manual_6()
+    if(exploring == true) then
+      exploring = false
+    end
+    crawl.sendkeys("6")
+  end
+  function manual_7()
+    if(exploring == true) then
+      exploring = false
+    end
+    crawl.sendkeys("7")
+  end
+  function manual_8()
+    if(exploring == true) then
+      exploring = false
+    end
+    crawl.sendkeys("8")
+  end
+  function manual_9()
+    if(exploring == true) then
+      exploring = false
+    end
+    crawl.sendkeys("9")
+  end
+  
+  local fmet = true
+  function fmore_early_threats()
+    if you.xl() > 13 and fmet then
+      crawl.setopt("force_more_message -= centaur.* comes? into view")
+      crawl.setopt("force_more_message -= hydra.* comes? into view")
+      crawl.setopt("force_more_message -= killer bee.* comes? into view")
+      crawl.setopt("force_more_message -= electric eel.* comes? into view")
+      fmet = false
+    end
+  end
+  
+  local aft = false
+  function toggle_autothrow()
+    if aft then
+      crawl.setopt("use_animations += beam, monster")
+      crawl.setopt("autofight_throw = false")
+      crawl.mpr("Autofight_throw is off.")
+    else
+      crawl.setopt("use_animations -= beam, monster")
+      crawl.setopt("autofight_throw = true")
+      crawl.mpr("Autofight_throw is on.")
+    end
+    aft = not aft
+  end
+  
+  local cheiwalk = true
+  function toggle_cheiwalk()
+    if cheiwalk then
+      crawl.setopt("force_more_message -= comes? into view")
+      crawl.mpr("Cheiwalk mode is off.")
+    else
+      crawl.setopt("force_more_message += comes? into view")
+      crawl.mpr("Cheiwalk mode is on.")
+    end
+    cheiwalk = not cheiwalk
+  end
+  
+  local mmores = false
+  function toggle_more_mores()
+    if mmores then
+      crawl.setopt("force_more_message -= Found")
+      crawl.mpr("Less mores.")
+    else
+      crawl.setopt("force_more_message += Found")
+      crawl.mpr("More mores.")
+    end
+    mmores = not mmores
+  end
+  
+  local portalmode = false
+  function toggle_portal_mode()
+    if portalmode then
+      crawl.setopt("show_game_time = false")
+      crawl.mpr("Portal mode is off.")
+    else
+      crawl.setopt("show_game_time = true")
+      crawl.mpr("Portal mode is on.")
+    end
+    portalmode = not portalmode
+  end
+  
+  local autorestmode = true
+  function toggle_autorest()
+    if autorestmode then
+      crawl.setopt("explore_auto_rest = false")
+      crawl.mpr("Autorest mode is off.")
+    else
+      crawl.setopt("explore_auto_rest = true")
+      crawl.mpr("Autorest mode is on.")
+    end
+    autorestmode = not autorestmode
+  end
+  
+  local function autopickup(it, name)
+    local class = it.class(true)
+    local weap = items.equipped_at("Weapon")
+    local shie = items.equipped_at("Shield")
+    if it.is_useless then return false end
+    if class == "armour" then
+      local aux_slots = {cloak="Cloak", helmet="Helmet",
+        gloves="Gloves", boots="Boots", shield="Shield"}
+      st, _ = it.subtype()
+      if aux_slots[st] == "Shield" then
+        if (weap == nil or weap.hands == 1) and (shie == nil or it.branded) then
+          return true
+        end
+      elseif aux_slots[st] ~= nil and items.equipped_at(aux_slots[st]) == nil then
+        return true
+      elseif st ~= "body" and it.branded then
+        return true
+      end 
+    end
+    return nil
+  end
+  
+  add_autopickup_func(autopickup)
+
+
+  function MDEE_set_skills()
+    if you.race() == "Mountain Dwarf" and you.class() == "Earth Elementalist" then
+      set_and_train("Spellcasting", 12)
+      set_and_train("Armour", 14)
+      set_and_focus("Earth Magic", 18)
+    end
+  end
+  
+  function MDFe_set_skills()
+    if you.race() == "Mountain Dwarf" and you.class() == "Fire Elementalist" then
+      set_and_train("Spellcasting", 6)
+      set_and_train("Conjurations", 6)
+      set_and_focus("Fire Magic", 10)
+      set_and_train("Fighting", 6)
+      set_and_train("Armour", 5)
+    end
+  end
+
+  function OnWp_set_skills()
+    if you.race() == "Oni" and you.class() == "Warper" then
+      set_and_train("Fighting", 14)
+      set_and_focus("Maces & Flails", 15)
+      set_and_train("Translocations", 10)
+      set_and_train("Spellcasting", 10)
+    end
+  end
+
+  function manage_skills()
+    untrain_all_skills()
+    MDEE_set_skills()
+    MDFe_set_skills()
+    OnWp_set_skills()
+  end
+
+  }
+
 ##
 ## END
 ################################################################################################
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.14]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.27]")
 : crawl.enable_more(true)
