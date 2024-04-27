@@ -21,7 +21,6 @@ travel_delay = -1
 explore_delay = -1
 rest_delay = -1
 trapwalk_safe_hp = dart:20,needle:15,arrow:35,bolt:45,spear:40,axe:45,blade:95
-ability_slot = a
 
 
 ### Macros
@@ -102,7 +101,7 @@ show_god_gift = yes
 cloud_status = true
 simple_targeting = false
 force_spell_targeter = eringya's noxious bog
-force_ability_targeter = sanctuary, word of chaos, recite, elemental force, oozemancy, drain life, disaster area, corrupt, foxfire swarm
+force_ability_targeter = sanctuary, word of chaos, recite, elemental force, oozemancy, disaster area, corrupt, foxfire swarm
 tile_web_mouse_control = false
 fire_order = launcher, boomerang, rock, poisoned dart, javelin, stone
 
@@ -146,10 +145,6 @@ menu_colour += cyan:wand of char
 menu_colour += cyan:wand of mind
 
 autoinscribe ^= scroll of silence:!r
-#: if you.skill("Staves") < 5 then
-#  autoinscribe += magical staff:!a
-#: end
-
 
 ae := autopickup_exceptions
 
@@ -605,13 +600,17 @@ hp_warning = 70
   function ready()
     if you.turns() == 0 and need_skills_opened then
       need_skills_opened = false
-      annotate_v5()
       manage_skills()
+      
       crawl.sendkeys("m")
     end
   
-    if crawl.messages(5):find("You enter a gauntlet") and (you.god()=="Lugonu" or you.god()=="Fedhas" or you.god()=="Sif Muna") then
-      crawl.mpr("Break the walls!")
+    if crawl.messages(5):find("to the Vaults") then
+      annotate_v5()
+    end
+
+    if crawl.messages(5):find("downwards") and you.depth() == 4 and you.branch() == "Dungeon" then
+      crawl.sendkeys("r")
     end
   
     fmore_early_threats()
@@ -625,9 +624,9 @@ hp_warning = 70
   
   function annotate_v5() 
     crawl.sendkeys("!")
-    crawl.sendKeys("V")
-    crawl.sendKeys("5")
-    crawl.sendKeys("! DO NOT GO UNLESS READY. BAD STUFF HAPPENS HERE")
+    crawl.sendkeys("V")
+    crawl.sendkeys("5")
+    crawl.sendkeys("! DO NOT GO UNLESS READY. BAD STUFF HAPPENS HERE")
   end
   
   -- https://tavern.dcss.io/t/function-ready-no-longer-works/704/8
@@ -858,5 +857,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.27]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.29]")
 : crawl.enable_more(true)
