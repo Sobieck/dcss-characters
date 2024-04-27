@@ -611,7 +611,7 @@ hp_warning = 70
       crawl.sendkeys("m")
     end
 
-    if crawl.messages(5):find("You climb downwards.") and you.depth() == 2 and you.branch() == "V" then
+    if crawl.messages(5):find("Found a gate to the Vaults.") then
       annotate_v5()
     end
 
@@ -873,5 +873,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.31]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.32]")
 : crawl.enable_more(true)
