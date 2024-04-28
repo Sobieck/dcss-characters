@@ -48,7 +48,7 @@ macros += M \{-273} iCw\{27}\{27}zI
 macros += M \{-274} iCw\{27}\{27}zJ
 
 macros += M \{-248} ===toggle_autothrow
-macros += M \{-249} ===toggle_cheiwalk
+-- macros += M \{-249} 
 macros += M \{-250} ===toggle_autorest
 macros += M \{-255} ===toggle_more_mores
 macros += M \{-246} ===toggle_zigmode 
@@ -156,7 +156,6 @@ ae += <throwing net
 ae += <dart
 ae += <javelin 
 ae += <stone
-ae += <large rock
 ae += <boomerang
 
 ae += >scrolls? of (amn)
@@ -441,11 +440,6 @@ ae += >magical staff
 ae ^= <potions? of ambro
 :else 
 ae += >potions? of ambro
-: end
-
-: if you.god() == "Cheibriados"then
-default_autopickup = false
-force_more_message += comes? into view
 : end
 
 : if you.race() == "Barachi" then
@@ -748,18 +742,6 @@ hp_warning = 70
     aft = not aft
   end
   
-  local cheiwalk = true
-  function toggle_cheiwalk()
-    if cheiwalk then
-      crawl.setopt("force_more_message -= comes? into view")
-      crawl.mpr("Cheiwalk mode is off.")
-    else
-      crawl.setopt("force_more_message += comes? into view")
-      crawl.mpr("Cheiwalk mode is on.")
-    end
-    cheiwalk = not cheiwalk
-  end
-  
   local mmores = false
   function toggle_more_mores()
     if mmores then
@@ -873,5 +855,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.32]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.33]")
 : crawl.enable_more(true)
