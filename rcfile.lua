@@ -157,6 +157,8 @@ ae += <dart
 ae += <javelin 
 ae += <stone
 ae += <boomerang
+ae += <sling
+ae += <large rock
 
 ae += >scrolls? of (amn)
 ae += >wand of rand
@@ -425,11 +427,6 @@ ae += >potions? of flight
 ae += >scrolls? of holy word
 : end
 
-: if you.race() == "Ogre" or you.race() == "Troll" then
-ae += <large rock
-ae += <javelin
-: end
-
 : if you.god() == "Trog" then
 ae += >potions? of brilliance
 ae += >potions? of berserk
@@ -625,7 +622,7 @@ hp_warning = 70
   function annotate_v5() 
     crawl.sendkeys("!")
     crawl.sendkeys("V")
-    crawl.sendkeys("5")
+    crawl.sendkeys(5)
     crawl.sendkeys("! DO NOT GO UNLESS READY. BAD STUFF HAPPENS HERE")
   end
   
@@ -855,5 +852,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.33]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.35]")
 : crawl.enable_more(true)
