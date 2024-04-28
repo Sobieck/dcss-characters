@@ -643,12 +643,12 @@ hp_warning = 70
     end
   end
   
-  function set_and_train(skillname, amount) 
+  function train(skillname, amount) 
       you.set_training_target(skillname, amount)
       you.train_skill(skillname, 1)
   end
   
-  function set_and_focus(skillname, amount) 
+  function focus(skillname, amount) 
     you.set_training_target(skillname, amount)
     you.train_skill(skillname, 2)
   end
@@ -805,37 +805,37 @@ hp_warning = 70
 
   function MDEE_set_skills()
     if you.race() == "Mountain Dwarf" and you.class() == "Earth Elementalist" then
-      set_and_train("Spellcasting", 12)
-      set_and_train("Armour", 14)
-      set_and_focus("Earth Magic", 18)
+      train("Spellcasting", 12)
+      train("Armour", 14)
+      focus("Earth Magic", 18)
     end
   end
   
   function MDFe_set_skills()
     if you.race() == "Mountain Dwarf" and you.class() == "Fire Elementalist" then
-      set_and_train("Spellcasting", 6)
-      set_and_train("Conjurations", 6)
-      set_and_focus("Fire Magic", 10)
-      set_and_train("Fighting", 6)
-      set_and_train("Armour", 5)
+      train("Spellcasting", 6)
+      train("Conjurations", 6)
+      focus("Fire Magic", 10)
+      train("Fighting", 6)
+      train("Armour", 5)
     end
   end
 
   function OnWp_set_skills()
     if you.race() == "Oni" and you.class() == "Warper" then
-      set_and_train("Fighting", 14)
-      set_and_focus("Maces & Flails", 15)
-      set_and_train("Translocations", 10)
-      set_and_train("Spellcasting", 10)
+      train("Fighting", 14)
+      focus("Maces & Flails", 15)
+      train("Translocations", 10)
+      train("Spellcasting", 10)
     end
   end
 
   function OnSh_set_skills() 
     if you.race() == "Oni" and you.class() == "Shapeshifter" then
-      set_and_train("Fighting", 12)
-      set_and_focus("Unarmed Combat", 12)
-      set_and_train("Shapeshifting", 11)
-      set_and_train("Dodging", 8)
+      train("Fighting", 12)
+      focus("Unarmed Combat", 12)
+      train("Shapeshifting", 11)
+      train("Dodging", 8)
     end
   end
 
