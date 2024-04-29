@@ -853,7 +853,7 @@ hp_warning = 70
   end
 
   function MDSu_set_skills()
-    if you.race() == "Mountain Dwarf" and you.class() == "Fighter" then
+    if you.race() == "Mountain Dwarf" and you.class() == "Summoner" then
       train("Spellcasting", 8)
       focus("Summonings", 10)
     end
