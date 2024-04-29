@@ -836,12 +836,43 @@ hp_warning = 70
     end
   end
 
+  function MDHu_set_stills()
+    if you.race() == "Mountain Dwarf" and you.class() == "Hunter" then
+      train("Fighting", 15)
+      focus("Ranged Weapons", 13)
+      train("Evocations", 5)
+      train("Dodging", 4)   
+    end
+  end
+
+  function MDFi_set_skills()
+    if you.race() == "Mountain Dwarf" and you.class() == "Fighter" then
+      train("Fighting", 10)
+      train("Axes", 12)
+    end
+  end
+
+  function MDSu_set_skills()
+    if you.race() == "Mountain Dwarf" and you.class() == "Fighter" then
+      train("Spellcasting", 8)
+      focus("Summonings", 10)
+    end
+  end
+
   function manage_skills()
     untrain_all_skills()
+
+    -- easy combos 
+    -- DgHu_set_skills()
+    OnSh_set_skills()
+
+    -- # others
     MDEE_set_skills()
     MDFe_set_skills()
     OnWp_set_skills()
-    OnSh_set_skills()
+    MDHu_set_stills()
+    MDFi_set_skills()
+    MDSu_set_skills()
   end
 
   }
@@ -852,5 +883,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.35]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.37]")
 : crawl.enable_more(true)
