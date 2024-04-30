@@ -267,6 +267,7 @@ force_more_message += Your guardian golem overheats
 force_more_message += offers itself
 force_more_message += volcano erupts
 force_more_message += Uskayaw prepares the audience for your solo
+force_more_message += Your blazeheart golem falls apart, revealing its core!
 force_more_message += Something reaches out for you
 force_more_message += You become entangled in the net
 force_more_message += wield.* blowgun
@@ -597,8 +598,11 @@ hp_warning = 70
   function ready()
     if you.turns() == 0 and need_skills_opened then
       need_skills_opened = false
+      
       manage_skills()
       
+      crawl.sendkeys("Q")
+      crawl.sendkeys("a")
       crawl.sendkeys("m")
     end
 
@@ -623,7 +627,9 @@ hp_warning = 70
     crawl.sendkeys("!")
     crawl.sendkeys("V")
     crawl.sendkeys(5)
-    crawl.sendkeys("! DO NOT GO UNLESS READY. BAD STUFF HAPPENS HERE")
+    crawl.sendkeys({13})
+    crawl.sendkeys("! DO NOT GO UNLESS READY. B!AD STUFF HAPPENS HERE")
+    crawl.sendkeys({13})
   end
   
   -- https://tavern.dcss.io/t/function-ready-no-longer-works/704/8
@@ -859,20 +865,49 @@ hp_warning = 70
     end
   end
 
+  function MDBe_set_skills()
+    if you.race() == "Mountain Dwarf" and you.class() == "Berserker" then
+      focus("Axes", 14)
+      train("Fighting", 9)
+      train("Throwing", 2)
+      train("Armour", 7)
+      train("Dodging", 2)    
+      train("Evocations", 5)     
+    end
+  end
+
+  function MDMo_set_skills()
+    if you.race() == "Mountain Dwarf" and you.class() == "Monk" then
+      focus("Axes", 16)
+      train("Fighting", 11)
+      train("Armour", 4)
+      train("Evocations", 4)     
+    end
+  end
+
+  function DgHu_set_skills()
+    if you.race() == "Demigod" and you.class() == "Hunter" then
+      focus("Ranged Weapons", 10) 
+    end
+  end
+
   function manage_skills()
     untrain_all_skills()
 
     -- easy combos 
-    -- DgHu_set_skills()
+    DgHu_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240216-190345.txt
     OnSh_set_skills()
 
     -- # others
     MDEE_set_skills()
-    MDFe_set_skills()
-    OnWp_set_skills()
     MDHu_set_stills()
     MDFi_set_skills()
+    MDFe_set_skills()
     MDSu_set_skills()
+    MDBe_set_skills()
+    MDMo_set_skills() -- https://underhound.eu/crawl/morgue/EnegeticOcto/morgue-EnegeticOcto-20240214-201749.txt 
+
+    OnWp_set_skills()
   end
 
   }
@@ -883,5 +918,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.37]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.38]")
 : crawl.enable_more(true)
