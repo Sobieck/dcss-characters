@@ -600,17 +600,18 @@ hp_warning = 70
       need_skills_opened = false
       
       manage_skills()
-      
+
       crawl.sendkeys("Q")
       crawl.sendkeys("a")
-      crawl.sendkeys("m")
     end
 
-    if crawl.messages(5):find("Found a gate to the Vaults.") then
+    -- There is a faded alter of an unknown god here.
+
+    if crawl.messages(5):find("Found a gate to the Vaults.") then 
       annotate_v5()
     end
 
-    if crawl.messages(5):find("You climb downwards.") and you.depth() == 4 and you.branch() == "D" then
+    if (crawl.messages(5):find("You climb downwards.") and you.depth() == 4 and you.branch() == "D") then -- or (crawl.messages(5):find("Done exploring.") and you.god() != "nil" and there are unided scrolls)
       crawl.sendkeys("r")
     end
   
@@ -624,12 +625,7 @@ hp_warning = 70
   exploring = false
   
   function annotate_v5() 
-    crawl.sendkeys("!")
-    crawl.sendkeys("V")
-    crawl.sendkeys(5)
-    crawl.sendkeys({13})
-    crawl.sendkeys("! DO NOT GO UNLESS READY. B!AD STUFF HAPPENS HERE")
-    crawl.sendkeys({13})
+    crawl.sendkeys("!V5\r! DO NOT GO UNLESS READY. BAD STUFF HAPPENS HERE\r")
   end
   
   -- https://tavern.dcss.io/t/function-ready-no-longer-works/704/8
@@ -891,20 +887,39 @@ hp_warning = 70
     end
   end
 
+  function GgEE_set_skills()
+    if you.race() == "Gargoyle" and you.class() == "Earth Elementalist" then
+      train("Spellcasting", 9)
+      focus("Earth Magic", 10)
+      train("Conjurations", 8)
+      train("Fighting", 7)
+    end
+  end
+
+  function MiFi_set_skills()
+    if you.race() == "Minotaur" and you.class() == "Fighter" then
+      train("Fighting", 9)
+      train("Axes", 12)
+      train("Shields", 5)
+    end
+  end
+
   function manage_skills()
     untrain_all_skills()
 
     -- easy combos 
     DgHu_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240216-190345.txt
+    GgEE_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240121-222647.txt
+    MiFi_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240122-193814.txt
     OnSh_set_skills()
 
-    -- # others
+    -- # othersp
     MDEE_set_skills()
     MDHu_set_stills()
     MDFi_set_skills()
-    MDFe_set_skills()
-    MDSu_set_skills()
-    MDBe_set_skills()
+    MDFe_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240427-135046.txt
+    MDSu_set_skills() -- https://crawl.project357.org/morgue/Wizard1ke/morgue-Wizard1ke-20240219-222605.txt
+    MDBe_set_skills() -- https://crawl.akrasiac.org/rawdata/Retrospecter/morgue-Retrospecter-20240307-051219.txt
     MDMo_set_skills() -- https://underhound.eu/crawl/morgue/EnegeticOcto/morgue-EnegeticOcto-20240214-201749.txt 
 
     OnWp_set_skills()
@@ -918,5 +933,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.38]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.40]")
 : crawl.enable_more(true)
