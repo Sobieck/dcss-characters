@@ -904,6 +904,14 @@ hp_warning = 70
     end
   end
 
+  function MfGl_set_skills() 
+    if you.race() == "Merfolk" and you.class() == "Gladiator" then
+      train("Fighting", 9)
+      focus("Long Blades", 14)
+      train("Dodging", 10)
+    end
+  end
+
   function manage_skills()
     untrain_all_skills()
 
@@ -911,7 +919,8 @@ hp_warning = 70
     DgHu_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240216-190345.txt
     GgEE_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240121-222647.txt
     MiFi_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240122-193814.txt
-    OnSh_set_skills()
+    OnSh_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240428-222549.txt
+    MfGl_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240123-185822.txt
 
     -- # othersp
     MDEE_set_skills()
@@ -933,5 +942,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.40]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.41]")
 : crawl.enable_more(true)
