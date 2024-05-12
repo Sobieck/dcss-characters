@@ -203,7 +203,7 @@ is ^= dispersal:K
 is ^= ring of protection from fire:f
 is ^= ring of protection from cold:c
 is ^= ring of protection from magic:m
-is ^= ring of willpower:m
+is ^= a ring of willpower:m
 is ^= ring of positive energy:n
 is ^= ring of poison resistance:o
 is ^= ring of see invisible:s
@@ -212,7 +212,7 @@ is ^= of resist corrosion:g
 is ^= amulet of regeneration:r
 is ^= blowgun:q
 is ^= throwing net:Z
-is ^= scroll of remove curse:W
+is ^= scroll of noise:W
 is ^= scroll of identify:R
 is ^= scroll of teleportation:T
 is ^= scroll of magic map:M
@@ -611,7 +611,7 @@ hp_warning = 70
       annotate_v5()
     end
 
-    if (crawl.messages(5):find("You climb downwards.") and you.depth() == 4 and you.branch() == "D") then -- or (crawl.messages(5):find("Done exploring.") and you.god() != "nil" and there are unided scrolls)
+    if crawl.messages(5):find("You climb downwards.") and you.depth() == 4 and you.branch() == "D" then -- or (crawl.messages(5):find("Done exploring.") and you.god() != "nil" and there are unided scrolls)
       crawl.sendkeys("r")
     end
   
@@ -887,15 +887,6 @@ hp_warning = 70
     end
   end
 
-  function GgEE_set_skills()
-    if you.race() == "Gargoyle" and you.class() == "Earth Elementalist" then
-      train("Spellcasting", 9)
-      focus("Earth Magic", 10)
-      train("Conjurations", 8)
-      train("Fighting", 7)
-    end
-  end
-
   function MiFi_set_skills()
     if you.race() == "Minotaur" and you.class() == "Fighter" then
       train("Fighting", 9)
@@ -909,6 +900,51 @@ hp_warning = 70
       train("Fighting", 9)
       focus("Long Blades", 14)
       train("Dodging", 10)
+    end
+  end
+
+  function NaAl_set_skills() 
+    if you.race() == "Naga" and you.class() == "Alchemist" then
+      focus("Alchemy", 10)
+      focus("Spellcasting", 8)
+      train("Stealth", 9)
+      train("Fighting", 5)
+    end
+  end
+
+  function GgEE_set_skills()
+    if you.race() == "Gargoyle" and you.class() == "Earth Elementalist" then
+      train("Spellcasting", 9)
+      focus("Earth Magic", 10)
+      train("Conjurations", 8)
+      train("Fighting", 7)
+    end
+  end
+
+  function GrIE_set_skills() 
+    if you.race() == "Gargoyle" and you.class() == "Ice Elementalist" then
+      train("Fighting", 3)
+      train("Spellcasting", 5)
+      focus("Ice Magic", 10)
+    end
+  end
+
+  function Dj_set_skills()
+    if you.race() == "Djinni" then
+      train("Stealth", 5)
+      train("Fighting", 5)
+      train("Dodging", 6)
+      focus("Spellcasting", 7)
+    end
+  end
+
+  function DrAl_set_skills() 
+    if you.race() == "Draconian" and you.class() == "Alchemist" then
+      train("Stealth", 6)
+      train("Spellcasting", 6)
+      train("Conjurations", 2)
+      focus("Alchemy", 10)
+      train("Fighting", 7)
     end
   end
 
@@ -932,6 +968,14 @@ hp_warning = 70
     MDMo_set_skills() -- https://underhound.eu/crawl/morgue/EnegeticOcto/morgue-EnegeticOcto-20240214-201749.txt 
 
     OnWp_set_skills()
+
+    NaAl_set_skills() -- https://cbro.berotato.org/morgue/Lemonizer/morgue-Lemonizer-20240403-035404.txt
+
+    GrIE_set_skills() -- https://crawl.xtahua.com/crawl/morgue/Ge0ff/morgue-Ge0ff-20240326-180132.txt
+
+    Dj_set_skills() -- https://crawl.xtahua.com/crawl/morgue/seren/morgue-seren-20240122-194555.txt
+
+    DrAl_set_skills() -- https://underhound.eu/crawl/morgue/EnegeticOcto/morgue-EnegeticOcto-20240220-235342.txt
   end
 
   }
@@ -942,5 +986,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.41]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.43]")
 : crawl.enable_more(true)
