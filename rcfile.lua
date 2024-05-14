@@ -573,13 +573,6 @@ force_more_message += (?!.(Here|Aim):).wielding.of (distortion|chaos)
 hp_warning = 70
 
 {
-  function unknown_god_stop(message_buffer)
-    if message_buffer:find("Found a faded altar of an unknown god.") then 
-      crawl.mpr("UNKNOWN GOD", "warning")
-      crawl.more()
-    end
-  end
-
   function annotate_v5(message_buffer) 
     if message_buffer:find("Found a gate to the Vaults.") then 
       crawl.sendkeys("!V5\r! DO NOT GO UNLESS READY. BAD STUFF HAPPENS HERE\r")
@@ -587,7 +580,14 @@ hp_warning = 70
   end
 
   function has_god() 
-    return not you.god() == "No God"
+    return (not (you.god() == "No God")) or you.race() == "Demigod"
+  end
+
+  function god_stop(message_buffer)
+    if (message_buffer:find("Found a faded altar of an unknown god.") or message_buffer:find("Found a staircase to the Ecumenical Temple")) and has_god() == false then 
+      crawl.mpr("GET GOD", "warning")
+      crawl.more()
+    end
   end
 
   function just_went_downwards(message_buffer) 
@@ -598,33 +598,44 @@ hp_warning = 70
     return not (you.branch() == "D" and you.depth() < 4)
   end
 
-  function any_un_ided_scrolls()
+  function any_un_ided_items(type)
     for index, item in ipairs(items.inventory()) do
-      if item:class() == "Scrolls" then -- Potions
+      if item:class() == type then 
         if item.fully_identified == false then
           return true
         end 
       end
     end
+    
+    return false
+  end
 
+  function has_id_scrolls()
+    for index, item in ipairs(items.inventory()) do
+      local item_name = item:name()
+      if item_name == "scrolls of identify" or item_name == "scroll of identify" then 
+        return true
+      end
+    end
+    
     return false
   end
 
   function read_id_scrolls(message_buffer) 
-    if just_went_downwards(message_buffer) and not_in_top_3_levels() and has_god() == false and any_un_ided_scrolls() then 
+    if 
+      (just_went_downwards(message_buffer) and not_in_top_3_levels() and has_god() == false and any_un_ided_items("Scrolls")) or
+      (message_buffer:find("Done exploring.") and has_god() and any_un_ided_items("Scrolls")) or
+      (message_buffer:find("Done exploring.") and any_un_ided_items("Potions") and has_id_scrolls())
+      then 
       crawl.sendkeys("r")
     end
 
-    if message_buffer:find("Done exploring.") and has_god() == true and any_un_ided_scrolls() then
-      crawl.sendkeys("r")
-    end
-
-    -- if has god and ID scroll and done exploring and un ided potions - press "r"
+    -- if has god and ID scroll and done exploring and un ided itemo - press "r"
   end
 
   --debug
   function test_function()
-    return any_un_ided_scrolls()
+    return has_god()
   end
   -- end debug
 
@@ -640,7 +651,7 @@ hp_warning = 70
 
     local message_buffer = crawl.messages(5)
     
-    unknown_god_stop(message_buffer)
+    god_stop(message_buffer)
     annotate_v5(message_buffer)
     read_id_scrolls(message_buffer)
 
