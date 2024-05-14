@@ -621,11 +621,15 @@ hp_warning = 70
     return false
   end
 
+  function done_exploring(message_buffer)
+    return message_buffer:find("Done exploring.") or message_buffer:find("Partly explored, can't reach some places.")
+  end
+
   function read_id_scrolls(message_buffer) 
     if 
       (just_went_downwards(message_buffer) and not_in_top_3_levels() and has_god() == false and any_un_ided_items("Scrolls")) or
-      (message_buffer:find("Done exploring.") and has_god() and any_un_ided_items("Scrolls")) or
-      (message_buffer:find("Done exploring.") and any_un_ided_items("Potions") and has_id_scrolls())
+      (done_exploring(message_buffer) and has_god() and any_un_ided_items("Scrolls")) or
+      (done_exploring(message_buffer) and any_un_ided_items("Potions") and has_id_scrolls())
       then 
       crawl.sendkeys("r")
     end
