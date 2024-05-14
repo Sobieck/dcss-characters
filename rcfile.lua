@@ -613,7 +613,7 @@ hp_warning = 70
   function has_id_scrolls()
     for index, item in ipairs(items.inventory()) do
       local item_name = item:name()
-      if item_name == "scrolls of identify" or item_name == "scroll of identify" then 
+      if item_name:find("identify") then 
         return true
       end
     end
@@ -639,7 +639,7 @@ hp_warning = 70
 
   --debug
   function test_function()
-    return has_god()
+    return has_id_scrolls()
   end
   -- end debug
 
