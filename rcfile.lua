@@ -534,6 +534,11 @@ function rc_err(msg)
   rc_out("❌", "lightred", msg)
 end
 
+function print_table(table) 
+  for index, value in ipairs(table) do
+    rc_msg(tostring(value))
+  end
+end
 
 function table_has(table, match)
   for index, value in ipairs(table) do
@@ -544,32 +549,6 @@ function table_has(table, match)
 
   return false
 end
-}
-
-##
-## DEBUG.lua
-################################################################################################
-{
--- rc_msg("DEBUG")
-
--- rc_msg(you.race())
--- rc_msg(tostring(not table_has({"Merfolk", "Octopode"}, you.race())))
-
--- if not table_has({"Merfolk", "Octopode"}, you.race()) then
---   rc_msg("1 Is NOT deep water walking race")
--- else
---   rc_msg("1 Is deep water walking race")
--- end
-
--- function colortest()
---   for i, color in pairs(COLORS) do
---     crawl.mpr(string.format("\n>> 🤖 colortest <%s>%s</%s>", color, color, color))
---   end
--- end
-
--- colortest()
-
--- rc_out("COLORS", COLORS.brown, COLORS.brown)
 }
 
 force_more_message += monster_warning:tormentor
@@ -594,6 +573,61 @@ force_more_message += (?!.(Here|Aim):).wielding.of (distortion|chaos)
 hp_warning = 70
 
 {
+  function unknown_god_stop(message_buffer)
+    if message_buffer:find("Found a faded altar of an unknown god.") then 
+      crawl.mpr("UNKNOWN GOD", "warning")
+      crawl.more()
+    end
+  end
+
+  function annotate_v5(message_buffer) 
+    if message_buffer:find("Found a gate to the Vaults.") then 
+      crawl.sendkeys("!V5\r! DO NOT GO UNLESS READY. BAD STUFF HAPPENS HERE\r")
+    end
+  end
+
+  function has_god() 
+    return not you.god() == "No God"
+  end
+
+  function just_went_downwards(message_buffer) 
+    return message_buffer:find("You fly downwards.") or message_buffer:find("You climb downwards.")
+  end
+
+  function not_in_top_3_levels() 
+    return not (you.branch() == "D" and you.depth() < 4)
+  end
+
+  function any_un_ided_scrolls()
+    for index, item in ipairs(items.inventory()) do
+      if item:class() == "Scrolls" then -- Potions
+        if item.fully_identified == false then
+          return true
+        end 
+      end
+    end
+
+    return false
+  end
+
+  function read_id_scrolls(message_buffer) 
+    if just_went_downwards(message_buffer) and not_in_top_3_levels() and has_god() == false and any_un_ided_scrolls() then 
+      crawl.sendkeys("r")
+    end
+
+    if message_buffer:find("Done exploring.") and has_god() == true and any_un_ided_scrolls() then
+      crawl.sendkeys("r")
+    end
+
+    -- if has god and ID scroll and done exploring and un ided potions - press "r"
+  end
+
+  --debug
+  function test_function()
+    return any_un_ided_scrolls()
+  end
+  -- end debug
+
   local need_skills_opened = true
   function ready()
     if you.turns() == 0 and need_skills_opened then
@@ -601,32 +635,25 @@ hp_warning = 70
       
       manage_skills()
 
-      crawl.sendkeys("Q")
-      crawl.sendkeys("a")
+      crawl.sendkeys("Qa") -- quiver spell
     end
 
-    -- There is a faded alter of an unknown god here.
+    local message_buffer = crawl.messages(5)
+    
+    unknown_god_stop(message_buffer)
+    annotate_v5(message_buffer)
+    read_id_scrolls(message_buffer)
 
-    if crawl.messages(5):find("Found a gate to the Vaults.") then 
-      annotate_v5()
-    end
-
-    if crawl.messages(5):find("You climb downwards.") and you.depth() == 4 and you.branch() == "D" then -- or (crawl.messages(5):find("Done exploring.") and you.god() != "nil" and there are unided scrolls)
-      crawl.sendkeys("r")
-    end
-  
     fmore_early_threats()
     update_safe()
   end
-  
+
   -- Alert when unsafe when manually exploring
   
   local safe = you.feel_safe()
   exploring = false
   
-  function annotate_v5() 
-    crawl.sendkeys("!V5\r! DO NOT GO UNLESS READY. BAD STUFF HAPPENS HERE\r")
-  end
+
   
   -- https://tavern.dcss.io/t/function-ready-no-longer-works/704/8
   function untrain_all_skills()
@@ -800,6 +827,32 @@ hp_warning = 70
   end
   
   add_autopickup_func(autopickup)
+  
+  -- DEBUG.lua
+  -- rc_msg("DEBUG")
+
+  -- rc_msg(you.race())
+  -- rc_msg(tostring(not table_has({"Merfolk", "Octopode"}, you.race())))
+
+  -- if not table_has({"Merfolk", "Octopode"}, you.race()) then
+  --   rc_msg("1 Is NOT deep water walking race")
+  -- else
+  --   rc_msg("1 Is deep water walking race")
+  -- end
+
+  -- function colortest()
+  --   for i, color in pairs(COLORS) do
+  --     crawl.mpr(string.format("\n>> 🤖 colortest <%s>%s</%s>", color, color, color))
+  --   end
+  -- end
+
+  -- colortest()
+
+  -- rc_out("COLORS", COLORS.brown, COLORS.brown)
+
+  rc_msg(tostring(test_function()))
+
+  -- end debug
 
 
   function MDEE_set_skills()
@@ -986,5 +1039,5 @@ hp_warning = 70
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.43]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.46]")
 : crawl.enable_more(true)
