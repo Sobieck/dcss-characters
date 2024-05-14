@@ -622,7 +622,7 @@ hp_warning = 70
   end
 
   function done_exploring(message_buffer)
-    return message_buffer:find("Done exploring.") or message_buffer:find("Partly explored, can't reach some places.")
+    return message_buffer:find("Done exploring.") or message_buffer:find("Partly explored, can't reach some places.") or message_buffer:find("Could not explore, unopened runed door.")
   end
 
   function read_id_scrolls(message_buffer) 
