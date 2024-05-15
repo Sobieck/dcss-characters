@@ -159,6 +159,7 @@ ae += <stone
 ae += <boomerang
 ae += <sling
 ae += <large rock
+ae += <a ring of magical power
 
 ae += >scrolls? of (amn)
 ae += >wand of rand
@@ -865,7 +866,7 @@ hp_warning = 70
 
   -- rc_out("COLORS", COLORS.brown, COLORS.brown)
 
-  rc_msg(tostring(test_function()))
+  -- rc_msg(tostring(test_function()))
 
   -- end debug
 
@@ -952,6 +953,16 @@ hp_warning = 70
   function DgHu_set_skills()
     if you.race() == "Demigod" and you.class() == "Hunter" then
       focus("Ranged Weapons", 10) 
+    end
+  end
+
+  function DgAr_set_skills()
+    if you.race() == "Demigod" and you.class() == "Artificer" then
+      focus("Ranged Weapons", 9)
+      train("Fighting", 8)
+      train("Dodging", 8)
+      train("Armour", 3)
+      train("Evocations", 3)
     end
   end
 
@@ -1044,6 +1055,8 @@ hp_warning = 70
     Dj_set_skills() -- https://crawl.xtahua.com/crawl/morgue/seren/morgue-seren-20240122-194555.txt
 
     DrAl_set_skills() -- https://underhound.eu/crawl/morgue/EnegeticOcto/morgue-EnegeticOcto-20240220-235342.txt
+
+    DgAr_set_skills() -- https://crawl.xtahua.com/crawl/morgue/motkurizz/morgue-motkurizz-20230818-181127.txt
   end
 
   }
