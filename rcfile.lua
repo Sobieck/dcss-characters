@@ -189,7 +189,6 @@ as ^= Rolling:     r
 
 is := item_slot
 
-#free (in trunk): abdehipCL (qzNSW)
 is ^= ^stone:j
 is ^= poisoned dart:k
 is ^= (^|[0-9] )boomerang:t
@@ -213,7 +212,7 @@ is ^= of resist corrosion:g
 is ^= amulet of regeneration:r
 is ^= blowgun:q
 is ^= throwing net:Z
-is ^= scroll of noise:W
+is += scroll of noise:W
 is ^= scroll of identify:R
 is ^= scroll of teleportation:T
 is ^= scroll of magic map:M
@@ -623,7 +622,7 @@ hp_warning = 70
   end
 
   function done_exploring(message_buffer)
-    return message_buffer:find("Done exploring.") or message_buffer:find("Partly explored, can't reach some places.") or message_buffer:find("Could not explore, unopened runed door.")
+    return message_buffer:find("Done exploring.") or message_buffer:find("Partly explored") or message_buffer:find("Could not explore, unopened runed door.")
   end
 
   function read_id_scrolls(message_buffer) 
@@ -966,6 +965,12 @@ hp_warning = 70
     end
   end
 
+  function DgBr_set_skills()
+    if you.race() == "Demigod" and you.class() == "Brigand" then
+      focus("Ranged Weapons", 14)
+    end
+  end
+
   function MiFi_set_skills()
     if you.race() == "Minotaur" and you.class() == "Fighter" then
       train("Fighting", 9)
@@ -1027,6 +1032,20 @@ hp_warning = 70
     end
   end
 
+  function VsBr_set_skills()
+    if you.race() == "Vine Stalker" and you.class() == "Brigand" then
+      train("Stealth", 10)
+      train("Short Blades", 10)
+    end
+  end
+
+  function TrBr_set_skills() 
+    if you.race() == "Troll" and you.class() == "Brigand" then
+      train("Unarmed Combat", 11)
+      train("Dodging", 2)
+    end
+  end
+
   function manage_skills()
     untrain_all_skills()
 
@@ -1037,6 +1056,7 @@ hp_warning = 70
     OnSh_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240428-222549.txt
     MfGl_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240123-185822.txt
 
+    
     -- # othersp
     MDEE_set_skills()
     MDHu_set_stills()
@@ -1046,17 +1066,29 @@ hp_warning = 70
     MDBe_set_skills() -- https://crawl.akrasiac.org/rawdata/Retrospecter/morgue-Retrospecter-20240307-051219.txt
     MDMo_set_skills() -- https://underhound.eu/crawl/morgue/EnegeticOcto/morgue-EnegeticOcto-20240214-201749.txt 
 
+    
     OnWp_set_skills()
 
+    
     NaAl_set_skills() -- https://cbro.berotato.org/morgue/Lemonizer/morgue-Lemonizer-20240403-035404.txt
 
+    
     GrIE_set_skills() -- https://crawl.xtahua.com/crawl/morgue/Ge0ff/morgue-Ge0ff-20240326-180132.txt
 
+    
     Dj_set_skills() -- https://crawl.xtahua.com/crawl/morgue/seren/morgue-seren-20240122-194555.txt
 
+    
     DrAl_set_skills() -- https://underhound.eu/crawl/morgue/EnegeticOcto/morgue-EnegeticOcto-20240220-235342.txt
 
+
     DgAr_set_skills() -- https://crawl.xtahua.com/crawl/morgue/motkurizz/morgue-motkurizz-20230818-181127.txt
+    DgBr_set_skills() -- 
+
+
+    VsBr_set_skills() -- https://crawl.akrasiac.org/rawdata/T4S/morgue-T4S-20240119-045652.txt
+
+    TrBr_set_skills() -- https://cbro.berotato.org/morgue/RepHenryClay/morgue-RepHenryClay-20231008-013121.txt
   end
 
   }
