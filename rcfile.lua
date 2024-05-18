@@ -48,7 +48,7 @@ macros += M \{-273} iCw\{27}\{27}zI
 macros += M \{-274} iCw\{27}\{27}zJ
 
 macros += M \{-248} ===toggle_autothrow
--- macros += M \{-249} 
+macros += M \{-249} ===label_weapons_by_damage
 macros += M \{-250} ===toggle_autorest
 macros += M \{-255} ===toggle_more_mores
 macros += M \{-246} ===toggle_zigmode 
@@ -585,8 +585,10 @@ hp_warning = 70
 
   function god_stop(message_buffer)
     if (message_buffer:find("Found a faded altar of an unknown god.") or message_buffer:find("Found a staircase to the Ecumenical Temple")) and has_god() == false then 
-      crawl.mpr("GET GOD", "warning")
-      crawl.more()
+      if(not message_buffer:find("GET GOD")) then
+        crawl.mpr("GET GOD", "warning")
+        crawl.more()
+      end 
     end
   end
 
@@ -622,7 +624,7 @@ hp_warning = 70
   end
 
   function done_exploring(message_buffer)
-    return message_buffer:find("Done exploring.") or message_buffer:find("Partly explored") or message_buffer:find("Could not explore, unopened runed door.")
+    return message_buffer:find("Done exploring.") or message_buffer:find("Partly explored") or message_buffer:find("Could not explore")
   end
 
   function read_id_scrolls(message_buffer) 
@@ -633,8 +635,6 @@ hp_warning = 70
       then 
       crawl.sendkeys("r")
     end
-
-    -- if has god and ID scroll and done exploring and un ided itemo - press "r"
   end
 
   --debug
@@ -806,6 +806,29 @@ hp_warning = 70
     end
     portalmode = not portalmode
   end
+
+  function label_weapons_by_damage()
+    -- for index, item in ipairs(items.inventory()) do
+    --   if item:class():find("Weapon") then 
+    --     rc_msg(item:class())
+
+        
+
+    --   end
+    -- end
+
+    for item in iter.invent_iterator:new(items.inventory()) do
+      if item:class():find("Weapon") then 
+        -- rc_msg(item:class())
+        -- rc_msg(item.plus) -- additional damage
+        -- rc_msg(item.damage) -- base damage
+      end
+
+      --https://github.com/crawl/crawl/blob/904c1d6a4d5529cfa2839185b4aee08cf38cbe64/crawl-ref/source/describe.cc#L1399
+
+    end
+    rc_msg(crawl.messages(5))
+  end
   
   local autorestmode = true
   function toggle_autorest()
@@ -974,8 +997,17 @@ hp_warning = 70
   function MiFi_set_skills()
     if you.race() == "Minotaur" and you.class() == "Fighter" then
       train("Fighting", 9)
-      train("Axes", 12)
+      train("Axes", 12) 
       train("Shields", 5)
+    end
+  end
+
+  function MiBr_set_skills()
+    if you.race() == "Minotaur" and you.class() == "Brigand" then
+      focus("Unarmed Combat", 11)
+      train("Fighting", 9)
+      train("Dodging", 7)
+      train("Armour", 7)
     end
   end
 
@@ -1046,6 +1078,13 @@ hp_warning = 70
     end
   end
 
+  function KoBr_set_skills() 
+    if you.race() == "Kobold" and you.class() == "Brigand" then
+      train("Fighting", 11)
+      train("Dodging", 16)
+    end
+  end
+
   function manage_skills()
     untrain_all_skills()
 
@@ -1088,7 +1127,12 @@ hp_warning = 70
 
     VsBr_set_skills() -- https://crawl.akrasiac.org/rawdata/T4S/morgue-T4S-20240119-045652.txt
 
+
     TrBr_set_skills() -- https://cbro.berotato.org/morgue/RepHenryClay/morgue-RepHenryClay-20231008-013121.txt
+
+    KoBr_set_skills() -- https://crawl.project357.org/morgue/Kearsarge/morgue-Kearsarge-20240501-074743.txt
+
+    MiBr_set_skills() -- https://crawl.akrasiac.org/rawdata/frimble/morgue-frimble-20240221-213524.txt
   end
 
   }
