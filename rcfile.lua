@@ -1019,6 +1019,14 @@ hp_warning = 70
     end
   end
 
+  function MfBr_set_skills()
+    if you.race() == "Merfolk" and you.class() == "Brigand" then
+      train("Fighting", 9)
+      focus("Long Blades", 14)
+      train("Dodging", 10)
+    end
+  end
+
   function NaAl_set_skills() 
     if you.race() == "Naga" and you.class() == "Alchemist" then
       focus("Alchemy", 10)
@@ -1122,7 +1130,7 @@ hp_warning = 70
 
 
     DgAr_set_skills() -- https://crawl.xtahua.com/crawl/morgue/motkurizz/morgue-motkurizz-20230818-181127.txt
-    DgBr_set_skills() -- 
+    DgBr_set_skills() -- https://cbro.berotato.org/morgue/AutarchDCSS/morgue-AutarchDCSS-20240324-170250.txt
 
 
     VsBr_set_skills() -- https://crawl.akrasiac.org/rawdata/T4S/morgue-T4S-20240119-045652.txt
@@ -1130,9 +1138,14 @@ hp_warning = 70
 
     TrBr_set_skills() -- https://cbro.berotato.org/morgue/RepHenryClay/morgue-RepHenryClay-20231008-013121.txt
 
+
     KoBr_set_skills() -- https://crawl.project357.org/morgue/Kearsarge/morgue-Kearsarge-20240501-074743.txt
 
+
     MiBr_set_skills() -- https://crawl.akrasiac.org/rawdata/frimble/morgue-frimble-20240221-213524.txt
+  
+    
+    MfBr_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240123-185822.txt
   end
 
   }
