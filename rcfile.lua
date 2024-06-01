@@ -1093,6 +1093,18 @@ hp_warning = 70
     end
   end
 
+  function DeHW_set_skills() 
+    if you.race() == "Deep Elf" and you.class() == "Hedge Wizard" then
+      train("Stealth", 5)
+      focus("Conjurations", 11)
+      train("Summonings", 3)
+      focus("Spellcasting", 11)
+      train("Alchemy", 7)
+      train("Air Magic", 1)
+      train("Fighting", 3)
+    end
+  end
+
   function manage_skills()
     untrain_all_skills()
 
@@ -1146,6 +1158,9 @@ hp_warning = 70
   
     
     MfBr_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240123-185822.txt
+
+
+    DeHW_set_skills() -- https://webzook.net/soup/morgue/trunk/godot/morgue-godot-20230518-044854.txt
   end
 
   }
