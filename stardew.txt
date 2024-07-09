@@ -1,5 +1,7 @@
 21 * 8 = 168
 
+8 16 24 32 40 48 56 160
+
 SHOPPING LIST
 
 BUILDINGS
@@ -67,13 +69,12 @@ Pomegranate
 Spice Berry
 Wild Plum
 Daffodil
+Cheese
+Orange
+Chanterelle
 
 
 Mill
-2500g
-50 Stone
-150 Wood
-4 Cloth
 
 QUESTS
 Pale Ale
@@ -91,16 +92,9 @@ UNIVERSAL, Golden Pumpkin, Magic Rock Candy, Pearl, Prismatic Shard, Rabbit's Fo
 
 PANTRY
 
-Green Bean
-Cauliflower
-
 Hot Pepper
 Blue Berry
 Melon
-
-Large Milk
-Large Goat Milk
-
 
 
 BULLITEN
@@ -119,9 +113,6 @@ FOR POND
 
 Rainbow Trout Summer 6am - 7pm River Mountain Lake Sunny
 
-FISH
-
-Pufferfish Summer 12pm - 4pm Ocean, Ginger Island Sun
 
 CRAFTS ROOM
 
