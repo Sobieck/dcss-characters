@@ -1,6 +1,3 @@
-# TEAMNAME Future Player Ghosts
-# TEAMMEMBERS benadryl Graveyardigan billy1time ryathie mollymolluskus
-
 ##
 ## magus_ShadowRider38_sobieck.rc
 ################################################################################################
@@ -1105,6 +1102,21 @@ hp_warning = 70
     end
   end
 
+  function DECj_set_skills() 
+    if you.race() == "Deep Elf" and you.class() == "Conjurer" then
+      focus("Conjurations", 12)
+      focus("Spellcasting", 14)
+      train("Alchemy", 7)
+    end
+  end
+
+  function CoHu_set_skills() 
+    if you.race() == "Coglin" and you.class() == "Hunter" then
+      focus("Ranged Weapons", 12)
+    end
+  end
+
+
   function manage_skills()
     untrain_all_skills()
 
@@ -1114,7 +1126,8 @@ hp_warning = 70
     MiFi_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240122-193814.txt
     OnSh_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240428-222549.txt
     MfGl_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240123-185822.txt
-
+    DECj_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20230527-182706.txt
+    CoHu_set_skills() -- http://crawl.akrasiac.org/rawdata/duul/morgue-duul-20240803-200444.txt
     
     -- # othersp
     MDEE_set_skills()
@@ -1173,3 +1186,6 @@ hp_warning = 70
 
 : rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.46]")
 : crawl.enable_more(true)
+
+
+### something to try https://underhound.eu/crawl/morgue/cfcfcfcfcf/morgue-cfcfcfcfcf-20240801-212611.txt

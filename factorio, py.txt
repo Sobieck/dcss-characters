@@ -17,3 +17,8 @@ replace basic coal burners where it is a by product with the fancy one
 burn excess train fuel in biopowersupply
 
 exploit northern geothermal. 
+
+
+Shopping list
+mgrabbers
+train grabbers
