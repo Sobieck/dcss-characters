@@ -1,3 +1,6 @@
+# TEAMNAME Future Player Ghosts
+# TEAMMEMBERS benadryl billy1time akransas senlim HappinessSam 
+
 ##
 ## magus_ShadowRider38_sobieck.rc
 ################################################################################################
@@ -969,6 +972,15 @@ hp_warning = 70
     end
   end
 
+  function MDFw_set_skills()
+    if you.race() == "Mountain Dwarf" and you.class() == "Forgewright" then
+      focus("Forgecraft", 14)
+      train("Fighting", 5)
+      train("Armour", 6)
+      train("Spellcasting", 5)     
+    end
+  end
+
   function DgHu_set_skills()
     if you.race() == "Demigod" and you.class() == "Hunter" then
       focus("Ranged Weapons", 10) 
@@ -1116,6 +1128,56 @@ hp_warning = 70
     end
   end
 
+  function GhWd_set_skills()
+    if you.race() == "Ghoul" and you.class() == "Wanderer" then
+      focus("Unarmed Combat", 13)
+      train("Fighting", 9)
+    end
+  end
+
+  function SpBe_set_skills()
+    if you.race() == "Spriggan" and you.class() == "Berserker" then
+      train("Stealth", 10)
+      train("Fighting", 8)
+      focus("Short Blades", 8)
+      train("Dodging", 14)
+    end
+  end
+
+  function MfSh_set_skills()
+    if you.race() == "Merfolk" and you.class() == "Shapeshifter" then
+      train("Stealth", 7)
+      train("Fighting", 8)
+      focus("Unarmed Combat", 7)
+      train("Dodging", 9)
+      train("Shapeshifting", 9)
+    end
+  end
+
+  function TrMo_set_skills()
+    if you.race() == "Troll" and you.class() == "Monk" then
+      train("Fighting", 8)
+      focus("Unarmed Combat", 8)
+    end
+  end
+
+  function DrAr_set_skills()
+    if you.race() == "Draconian" and you.class() == "Artificer" then
+      train("Fighting", 7)
+      focus("Unarmed Combat", 8)
+      train("Stealth", 3)
+      train("Dodging", 4)
+      train("Evocations", 5)
+    end
+  end
+
+  function DrGl_set_skills()
+    if you.race() == "Draconian" and you.class() == "Gladiator" then
+      focus("Long Blades", 11)
+      train("Dodging", 7)
+      train("Fighting", 10)
+    end
+  end
 
   function manage_skills()
     untrain_all_skills()
@@ -1128,6 +1190,7 @@ hp_warning = 70
     MfGl_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20240123-185822.txt
     DECj_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20230527-182706.txt
     CoHu_set_skills() -- http://crawl.akrasiac.org/rawdata/duul/morgue-duul-20240803-200444.txt
+    MfSh_set_skills() -- http://crawl.akrasiac.org/rawdata/CatfishMan/morgue-CatfishMan-20240828-011936.txt
     
     -- # othersp
     MDEE_set_skills()
@@ -1137,6 +1200,7 @@ hp_warning = 70
     MDSu_set_skills() -- https://crawl.project357.org/morgue/Wizard1ke/morgue-Wizard1ke-20240219-222605.txt
     MDBe_set_skills() -- https://crawl.akrasiac.org/rawdata/Retrospecter/morgue-Retrospecter-20240307-051219.txt
     MDMo_set_skills() -- https://underhound.eu/crawl/morgue/EnegeticOcto/morgue-EnegeticOcto-20240214-201749.txt 
+    MDFw_set_skills() -- https://archive.nemelex.cards/morgue/Tanach/morgue-Tanach-20241116-110232.txt
 
     
     OnWp_set_skills()
@@ -1152,6 +1216,8 @@ hp_warning = 70
 
     
     DrAl_set_skills() -- https://underhound.eu/crawl/morgue/EnegeticOcto/morgue-EnegeticOcto-20240220-235342.txt
+    DrAr_set_skills() -- https://crawl.akrasiac.org/rawdata/frimble/morgue-frimble-20240829-222046.txt
+    DrGl_set_skills() -- https://cbro.berotato.org/morgue/SuperSeabass/morgue-SuperSeabass-20241014-013901.txt
 
 
     DgAr_set_skills() -- https://crawl.xtahua.com/crawl/morgue/motkurizz/morgue-motkurizz-20230818-181127.txt
@@ -1174,6 +1240,13 @@ hp_warning = 70
 
 
     DeHW_set_skills() -- https://webzook.net/soup/morgue/trunk/godot/morgue-godot-20230518-044854.txt
+
+    GhWd_set_skills() -- https://underhound.eu/crawl/morgue/Salticid/morgue-Salticid-20240824-113756.txt
+
+    SpBe_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20210623-162328.txt
+
+    TrMo_set_skills() -- https://underhound.eu/crawl/morgue/kuniqs/morgue-kuniqs-20240903-152205.txt
+
   end
 
   }
