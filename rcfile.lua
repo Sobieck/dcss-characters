@@ -676,9 +676,9 @@ hp_warning = 70
                   "Polearms","Staves","Unarmed Combat",
                   "Throwing","Slings","Armour","Dodging","Shields","Spellcasting",
                   "Conjurations","Hexes","Charms","Summonings","Necromancy",
-                  "Translocations","Transmutations","Fire Magic","Ice Magic",
+                  "Translocations","Forgecraft","Fire Magic","Ice Magic",
                   "Air Magic","Earth Magic","Alchemy","Invocations",
-                  "Evocations","Stealth"}
+                  "Evocations","Stealth", "Shapeshifting"}
     for i, sk in ipairs(skill_list) do
       you.train_skill(sk, 0)
     end
@@ -977,7 +977,7 @@ hp_warning = 70
       focus("Forgecraft", 14)
       train("Fighting", 5)
       train("Armour", 6)
-      train("Spellcasting", 5)     
+      train("Spellcasting", 5)
     end
   end
 
@@ -1179,6 +1179,15 @@ hp_warning = 70
     end
   end
 
+  function DrHW_set_skills()    
+    if you.race() == "Draconian" and you.class() == "Hedge Wizard" then
+      train("Necromancy", 2)
+      train("Summonings", 4)
+      train("Fighting", 10)
+      focus("Spellcasting", 10)
+  end
+end
+
   function manage_skills()
     untrain_all_skills()
 
@@ -1218,6 +1227,7 @@ hp_warning = 70
     DrAl_set_skills() -- https://underhound.eu/crawl/morgue/EnegeticOcto/morgue-EnegeticOcto-20240220-235342.txt
     DrAr_set_skills() -- https://crawl.akrasiac.org/rawdata/frimble/morgue-frimble-20240829-222046.txt
     DrGl_set_skills() -- https://cbro.berotato.org/morgue/SuperSeabass/morgue-SuperSeabass-20241014-013901.txt
+    DrHW_set_skills() -- https://crawl.akrasiac.org/rawdata/geewiz/morgue-geewiz-20240929-203055.txt
 
 
     DgAr_set_skills() -- https://crawl.xtahua.com/crawl/morgue/motkurizz/morgue-motkurizz-20230818-181127.txt
