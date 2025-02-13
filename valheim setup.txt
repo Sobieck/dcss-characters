@@ -1,0 +1,3 @@
+Mod Code: 0194ffa2-f1bd-c91d-0665-73d15b970506
+Command Line For Steam Selected Launch Options: "/home/sobieck/.config/r2modmanPlus-local/Valheim/linux_wrapper.sh" %command% -console
+r2modman is the name of the mod manager
