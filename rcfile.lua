@@ -51,7 +51,8 @@ macros += M \{-248} ===toggle_autothrow
 macros += M \{-249} ===label_weapons_by_damage
 macros += M \{-250} ===toggle_autorest
 macros += M \{-255} ===toggle_more_mores
-macros += M \{-246} ===toggle_zigmode 
+-- macros += M \{-246} ===toggle_zigmode
+macros += M \{-246} ===test_function
 
 ## Alert when unsafe when manually exploring
 
@@ -603,7 +604,7 @@ hp_warning = 70
   function any_un_ided_items(type)
     for index, item in ipairs(items.inventory()) do
       if item:class() == type then 
-        if item.fully_identified == false then
+        if item.is_identified == false then
           return true
         end 
       end
@@ -639,7 +640,14 @@ hp_warning = 70
 
   --debug
   function test_function()
-    return has_id_scrolls()
+    crawl.mpr("Hello")
+    local message_buffer = crawl.messages(5)
+    if any_un_ided_items("Scrolls")  then
+      rc_msg("true")
+    else
+      rc_msg("false")
+    end
+    -- rc_msg(tostring())
   end
   -- end debug
 
@@ -1267,7 +1275,7 @@ end
 
 
 
-: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.46]")
+: rc_scs("Successfully initialized magus_ShadowRider38_sobieck.rc [v0.0.47]")
 : crawl.enable_more(true)
 
 
