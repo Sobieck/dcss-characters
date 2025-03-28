@@ -51,8 +51,7 @@ macros += M \{-248} ===toggle_autothrow
 macros += M \{-249} ===label_weapons_by_damage
 macros += M \{-250} ===toggle_autorest
 macros += M \{-255} ===toggle_more_mores
--- macros += M \{-246} ===toggle_zigmode
-macros += M \{-246} ===test_function
+macros += M \{-246} ===toggle_zigmode 
 
 ## Alert when unsafe when manually exploring
 
@@ -640,14 +639,7 @@ hp_warning = 70
 
   --debug
   function test_function()
-    crawl.mpr("Hello")
-    local message_buffer = crawl.messages(5)
-    if any_un_ided_items("Scrolls")  then
-      rc_msg("true")
-    else
-      rc_msg("false")
-    end
-    -- rc_msg(tostring())
+    return has_id_scrolls()
   end
   -- end debug
 
@@ -1194,6 +1186,15 @@ hp_warning = 70
       train("Fighting", 10)
       focus("Spellcasting", 10)
   end
+
+  function PlFE_set_skills()    
+    if you.race() == "Poltergeist" and you.class() == "Fire Elementalist" then
+      focus("Spellcasting", 7)
+      
+      train("Conjurations", 6)
+      train("Fire Magic", 7)
+      train("Fighting", 3)
+  end
 end
 
   function manage_skills()
@@ -1264,6 +1265,8 @@ end
     SpBe_set_skills() -- https://cbro.berotato.org/morgue/Sobieck/morgue-Sobieck-20210623-162328.txt
 
     TrMo_set_skills() -- https://underhound.eu/crawl/morgue/kuniqs/morgue-kuniqs-20240903-152205.txt
+
+    PlFE_set_skills() -- https://crawl.xtahua.com/crawl/morgue/Ge0ff/morgue-Ge0ff-20250326-210900.txt
 
   end
 
