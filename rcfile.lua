@@ -1194,6 +1194,7 @@ hp_warning = 70
       train("Conjurations", 6)
       train("Fire Magic", 7)
       train("Fighting", 3)
+    end
   end
 end
 
