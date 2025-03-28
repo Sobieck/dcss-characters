@@ -1196,6 +1196,28 @@ hp_warning = 70
       train("Fighting", 3)
     end
   end
+
+  function PlHs_set_skills()    
+    if you.race() == "Poltergeist" and you.class() == "Hexslinger" then
+      train("Spellcasting", 5)
+      train("Hexes", 10)
+      train("Fire Magic", 4)
+      train("Fighting", 5)
+      focus("Ranged Weapons", 10)
+      train("Dodging", 5)
+    end
+  end
+
+  function PlEn_set_skills()    
+    if you.race() == "Poltergeist" and you.class() == "Enchanter" then
+      train("Stealth", 15)
+      train("Short Blades", 10)
+      train("Hexes", 10)
+      train("Spellcasting", 6)
+      train("Fighting", 6)
+      train("Dodging", 11)
+    end
+  end
 end
 
   function manage_skills()
@@ -1268,6 +1290,10 @@ end
     TrMo_set_skills() -- https://underhound.eu/crawl/morgue/kuniqs/morgue-kuniqs-20240903-152205.txt
 
     PlFE_set_skills() -- https://crawl.xtahua.com/crawl/morgue/Ge0ff/morgue-Ge0ff-20250326-210900.txt
+
+    PlHs_set_skills() -- https://cbro.berotato.org/morgue/rbyellow5/morgue-rbyellow5-20250228-182428.txt
+
+    PlEn_set_skills() -- https://underhound.eu/crawl/morgue/SayItsName/morgue-SayItsName-20250308-210031.txt
 
   end
 
