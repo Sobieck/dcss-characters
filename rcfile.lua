@@ -1128,6 +1128,17 @@ hp_warning = 70
     end
   end
 
+  function CoWp_set_skills() 
+    if you.race() == "Coglin" and you.class() == "Warper" then
+      focus("Axes", 10)
+      train("Spellcasting", 3)
+      train("Dodging", 4)
+      train("Armour", 4)
+      train("Translocations", 6)
+      train("Fighting", 8)
+    end
+  end
+
   function GhWd_set_skills()
     if you.race() == "Ghoul" and you.class() == "Wanderer" then
       focus("Unarmed Combat", 13)
@@ -1187,7 +1198,7 @@ hp_warning = 70
       focus("Spellcasting", 10)
   end
 
-  function PlFE_set_skills()    
+  function PoFE_set_skills()    
     if you.race() == "Poltergeist" and you.class() == "Fire Elementalist" then
       focus("Spellcasting", 7)
       
@@ -1197,7 +1208,7 @@ hp_warning = 70
     end
   end
 
-  function PlHs_set_skills()    
+  function PoHs_set_skills()    
     if you.race() == "Poltergeist" and you.class() == "Hexslinger" then
       train("Spellcasting", 5)
       train("Hexes", 10)
@@ -1208,14 +1219,70 @@ hp_warning = 70
     end
   end
 
-  function PlEn_set_skills()    
+  function PoEn_set_skills()    
     if you.race() == "Poltergeist" and you.class() == "Enchanter" then
-      train("Stealth", 15)
+      focus("Stealth", 15)
       train("Short Blades", 10)
-      train("Hexes", 10)
+      focus("Hexes", 10)
       train("Spellcasting", 6)
       train("Fighting", 6)
       train("Dodging", 11)
+    end
+  end
+
+  function PoIE_set_skills()    
+    if you.race() == "Poltergeist" and you.class() == "Ice Elementalist" then
+      train("Fighting", 10)
+      focus("Ice Magic", 13)
+      train("Summonings", 3)
+      train("Evocations", 2)
+      train("Spellcasting", 10)
+      train("Dodging", 10)      
+    end
+  end
+
+  function ReEE_set_skills()
+    if you.race() == "Revenant" and you.class() == "Earth Elementalist" then
+      train("Conjurations", 2)
+      focus("Earth Magic", 15)
+      train("Spellcasting", 13)
+    end
+  end
+
+  function ReMo_set_skills()
+    if you.race() == "Revenant" and you.class() == "Monk" then
+      train("Dodging", 18)
+      focus("Unarmed Combat", 16)
+      train("Fighting", 15)
+      train("Evocations", 6)
+    end
+  end
+
+  function ReRv_set_skills()
+    if you.race() == "Revenant" and you.class() == "Reaver" then
+      train("Armour", 6)
+      focus("Unarmed Combat", 10)
+      train("Fighting", 10)
+    end
+  end
+
+  function ReHu_set_skills()
+    if you.race() == "Revenant" and you.class() == "Hunter" then
+      focus("Ranged Weapons", 15)
+      train("Stealth", 2)
+      train("Fighting", 10)
+      train("Dodging", 6)
+      train("Evocations", 3)
+    end
+  end
+
+  function ReCk_set_skills()
+    if you.race() == "Revenant" and you.class() == "Chaos Knight" then
+      focus("Unarmed Combat", 15)
+      train("Dodging", 9)
+      train("Stealth", 4)
+      train("Armour", 8)
+      train("Evocations", 8)
     end
   end
 end
@@ -1289,11 +1356,25 @@ end
 
     TrMo_set_skills() -- https://underhound.eu/crawl/morgue/kuniqs/morgue-kuniqs-20240903-152205.txt
 
-    PlFE_set_skills() -- https://crawl.xtahua.com/crawl/morgue/Ge0ff/morgue-Ge0ff-20250326-210900.txt
+    PoFE_set_skills() -- https://crawl.xtahua.com/crawl/morgue/Ge0ff/morgue-Ge0ff-20250326-210900.txt
 
-    PlHs_set_skills() -- https://cbro.berotato.org/morgue/rbyellow5/morgue-rbyellow5-20250228-182428.txt
+    PoHs_set_skills() -- https://cbro.berotato.org/morgue/rbyellow5/morgue-rbyellow5-20250228-182428.txt
 
-    PlEn_set_skills() -- https://underhound.eu/crawl/morgue/SayItsName/morgue-SayItsName-20250308-210031.txt
+    PoEn_set_skills() -- https://underhound.eu/crawl/morgue/SayItsName/morgue-SayItsName-20250308-210031.txt
+
+    PoIE_set_skills() -- https://crawl.dcss.io/crawl/morgue/AutarchDCSS/morgue-AutarchDCSS-20250220-221609.txt
+
+    ReEE_set_skills() -- https://cbro.berotato.org/morgue/greynaab/morgue-greynaab-20250314-163242.txt
+
+    CoWp_set_skills() -- https://crawl.dcss.io/crawl/morgue/cornishon/morgue-cornishon-20240906-164801.txt
+
+    ReMo_set_skills() -- https://crawl.akrasiac.org/rawdata/frimble/morgue-frimble-20250225-063749.txt
+
+    ReRv_set_skills() -- https://crawl.xtahua.com/crawl/morgue/Zigmound/morgue-Zigmound-20250218-152714.txt
+
+    ReHu_set_skills() -- https://crawl.dcss.io/crawl/morgue/particleface/morgue-particleface-20250302-224718.txt
+
+    ReCk_set_skills() -- https://crawl.dcss.io/crawl/morgue/agentgt/morgue-agentgt-20250313-204957.txt
 
   end
 
