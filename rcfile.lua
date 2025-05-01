@@ -1,5 +1,5 @@
 # TEAMNAME Future Player Ghosts
-# TEAMMEMBERS benadryl billy1time akransas senlim HappinessSam 
+# TEAMMEMBERS bnnuy ryathie espersc billy1time HappinessSam 
 
 ##
 ## magus_ShadowRider38_sobieck.rc
@@ -1285,6 +1285,16 @@ hp_warning = 70
       train("Evocations", 8)
     end
   end
+
+  function ReNe_set_skills()
+    if you.race() == "Revenant" and you.class() == "Necromancer" then
+      focus("Unarmed Combat", 10)
+      train("Necromancy", 7)
+      train("Spellcasting", 3)
+    end
+  end
+
+  
 end
 
   function manage_skills()
@@ -1375,6 +1385,8 @@ end
     ReHu_set_skills() -- https://crawl.dcss.io/crawl/morgue/particleface/morgue-particleface-20250302-224718.txt
 
     ReCk_set_skills() -- https://crawl.dcss.io/crawl/morgue/agentgt/morgue-agentgt-20250313-204957.txt
+
+    ReNe_set_skills() -- https://crawl.dcss.io/crawl/morgue/huiren/morgue-huiren-20250326-085738.txt
 
   end
 
