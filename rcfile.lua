@@ -161,12 +161,12 @@ ae += <sling
 ae += <large rock
 ae += <a ring of magical power
 
-ae += >scrolls? of (amn)
+ae += <scrolls? of (amn)
 ae += >wand of rand
 ae += >ring of (protection from (mag|fire|cold)|mag|ste|ice|fire|pos|wil|wiz)
 ae += >ring of (dex|int|str)
 ae ^= <potions? of (ambr|attr|lign|mut)
-ae ^= <scrolls? of (immolation|vulnerability)
+ae ^= <scrolls? of (immolation|vulnerability|noise)
 ae += <(lamp of fire|phial of floods|lightning rod|figurine|condenser vane)
 ae ^= <tin of tremorstones
 ae += <sack of spiders
